@@ -2,17 +2,20 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, Search, X, Phone } from "lucide-react"
+import { Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { BRAND } from "@/lib/constants/brand"
 
 const navLinks = [
-  { href: "/", label: "ДОМА" },
-  { href: "/#za-nas", label: "ЗА НАС" },
-  { href: "/#uslugi", label: "УСЛУГИ" },
-  { href: "/#cenovnik", label: "ЦЕНОВНИК" },
-  { href: "/#iskustva", label: "ИСКУСТВА" },
+  { href: "/", label: "Дома" },
+  { href: "/#za-nas", label: "За нас" },
+  { href: "/#uslugi", label: "Услуги" },
+  { href: "/#vozila", label: "Возила" },
+  { href: "/#cenovnik", label: "Ценовник" },
+  { href: "/#iskustva", label: "Искуства" },
 ]
 
 export function Header() {
@@ -49,10 +52,12 @@ export function Header() {
             }
           }}
         >
-          <div className="relative flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 transition-transform duration-300 group-hover:scale-105">
-            <span className="text-red-600 font-black text-2xl sm:text-3xl tracking-tighter">LT</span>
+          <div className="relative h-10 w-10 sm:h-12 sm:w-12 transition-transform duration-300 group-hover:scale-105">
+            <Image src="/logo.png" alt={BRAND.name} fill className="object-contain" sizes="48px" priority />
           </div>
-          <span className={`font-sans text-xl font-bold tracking-wider transition-colors duration-500 ${isScrolled || !isHomePage ? "text-white" : "text-black"}`}>ЛАМБЕЛ ТЕРМ</span>
+          <span className={`text-xl font-bold tracking-wider transition-colors duration-500 ${isScrolled || !isHomePage ? "text-white" : "text-black"}`}>
+            {BRAND.name}
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -71,17 +76,17 @@ export function Header() {
         {/* Right Section */}
         <div className="flex items-center gap-4">
           <span className={`hidden text-[12px] font-bold tracking-widest xl:block transition-colors duration-500 ${isScrolled || !isHomePage ? "text-white/80" : "text-black/80"}`}>
-            075 211 440
+            {BRAND.phone}
           </span>
           <Button asChild className="relative hidden font-sans overflow-hidden bg-primary text-white hover:bg-primary/90 sm:inline-flex group/btn h-9 px-6 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--primary),0.3)]">
             <a href="#kontakt">
-              <span className="relative z-10 text-[10px] font-light tracking-widest">КОНТАКТ</span>
+              <span className="relative z-10 text-[10px] font-light tracking-widest">Контакт</span>
               <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-shimmer" />
             </a>
           </Button>
 
           {/* Mobile Phone Icon */}
-          <a href="tel:075211440" className={`lg:hidden p-2 transition-colors duration-500 ${isScrolled || !isHomePage ? "text-white" : "text-black"}`}>
+          <a href={BRAND.phoneHref} className={`lg:hidden p-2 transition-colors duration-500 ${isScrolled || !isHomePage ? "text-white" : "text-black"}`}>
             <Phone className="h-6 w-6" />
           </a>
 
@@ -106,7 +111,7 @@ export function Header() {
                     }}
                     className="font-sans text-xl font-bold text-white"
                   >
-                    ЛАМБЕЛ ТЕРМ
+                    {BRAND.name}
                   </Link>
                   <button onClick={() => setIsOpen(false)} className="text-white">
                     <X className="h-6 w-6" />
@@ -125,10 +130,10 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="mt-auto border-t border-white/10 p-6">
-                  <p className="mb-4 text-sm text-white/60">075 211 440</p>
+                  <p className="mb-4 text-sm text-white/60">{BRAND.phone}</p>
                   <Button asChild className="w-full font-sans bg-primary text-white hover:bg-primary/90">
                     <a href="#kontakt" className="w-full">
-                      КОНТАКТ
+                      Контакт
                     </a>
                   </Button>
                 </div>

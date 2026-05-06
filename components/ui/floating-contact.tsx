@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { Phone, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { BRAND } from "@/lib/constants/brand";
 
-const PHONE = "075314850";
+const PHONE = BRAND.whatsappPhone;
 const VIBER_LINK = `viber://chat?number=${PHONE}`;
 const WHATSAPP_LINK = `https://wa.me/${PHONE}`;
 const CALL_LINK = `tel:${PHONE}`;

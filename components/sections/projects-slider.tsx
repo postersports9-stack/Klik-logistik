@@ -29,7 +29,7 @@ export function ProjectsSlider() {
     <section id="nasata-rabota" className="relative bg-[#1a1a1a] py-20 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <div className="mb-12 text-center text-white">
-          <h2 className="font-serif text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             Видлива трансформација
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/70">
@@ -82,10 +82,10 @@ export function ProjectsSlider() {
           />
           
           {/* Labels */}
-          <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded backdrop-blur-sm z-10 pointer-events-none">
+          <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 text-xs font-bold tracking-wider rounded backdrop-blur-sm z-10 pointer-events-none">
             Потоа
           </div>
-          <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded backdrop-blur-sm z-10 pointer-events-none">
+          <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 text-xs font-bold tracking-wider rounded backdrop-blur-sm z-10 pointer-events-none">
             Пред
           </div>
         </div>
@@ -93,7 +93,7 @@ export function ProjectsSlider() {
         {/* Project Info & Controls */}
         <div className="mx-auto max-w-4xl mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
           <div>
-            <h3 className="font-serif text-xl font-bold">{data.title}</h3>
+            <h3 className="text-xl font-bold">{data.title}</h3>
             <p className="text-white/60 text-sm">{data.location}</p>
           </div>
           <div className="flex items-center gap-6">

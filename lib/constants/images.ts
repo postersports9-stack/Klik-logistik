@@ -1,58 +1,48 @@
+const T1 = "/images/transport-1.avif";
+const T2 = "/images/transport-2.avif";
+const T3 = "/images/transport-3.avif";
+const T4 = "/images/transport-4.avif";
+const T5 = "/images/transport-5.avif";
+
 export const SITE_IMAGES = {
   hero: [
     {
-      src: "/rough-construction.webp",
-      title: "Груба градба",
-      sub: "КВАЛИТЕТ И БЕЗБЕДНОСТ",
-      description: "Професионална изведба на сите видови градежни објекти."
+      src: T1,
+      title: "Превоз на роба",
+      label: "",
+      sub: "Брзо и безбедно",
+      description: "Сигурен превоз на палетизирана и непалетизирана стока низ цела држава."
     },
     {
-      src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2574",
-      title: "Реновирање",
-      label: "Клуч на рака",
-      sub: "СОВРШЕН ПРОСТОР",
-      description: "Комплетно реновирање на станови, куќи и деловни простории."
+      src: T2,
+      title: "Меѓународен транспорт",
+      label: "Низ цела Европа",
+      sub: "Доверба и професионалност",
+      description: "Брз и сигурен меѓународен превоз на стока."
     },
     {
-      src: "/installation.webp",
-      title: "Инсталации",
-      label: "Водовод и Греење",
-      sub: "КВАЛИТЕТНИ МАТЕРИЈАЛИ",
-      description: "Сигурни и долготрајни решенија за вашиот дом."
+      src: T3,
+      title: "Логистика",
+      label: "Целосни решенија",
+      sub: "Од А до Б",
+      description: "Логистички решенија прилагодени на вашите потреби."
     }
   ],
   services: {
-    construction: "/rough-construction.webp",
-    roofing: "https://images.unsplash.com/photo-1632759145351-1d592919f522?q=80&w=2574",
-    renovation: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2574",
-    plumbing: "/installation.webp",
-    hvac: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2574"
+    domestic: T1,
+    international: T2,
+    logistics: T3,
   },
-  capabilities: [
-    "/rough-construction.webp",
-    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800",
-    "/installation.webp",
-    "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800",
-    "https://images.unsplash.com/photo-1632759145351-1d592919f522?q=80&w=800"
-  ],
+  capabilities: [T1, T2, T3, T4, T5],
+  vehicles: {
+    v1: T4,
+    v2: T5,
+  },
   portfolio: {
-    residential: [
-      "/rough-construction.webp",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200",
-      "/installation.webp",
-      "https://images.unsplash.com/photo-1632759145351-1d592919f522?q=80&w=1200"
-    ],
-    commercial: [
-      "/installation.webp",
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200",
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200"
-    ],
-    specialized: [
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200",
-      "/installation.webp",
-      "https://images.unsplash.com/photo-1632759145351-1d592919f522?q=80&w=1200",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200"
-    ]
+    domestic: [T1, T2, T3, T4],
+    international: [T2, T3, T4, T5],
+    specialized: [T1, T3, T4, T5],
   }
-};
+} as const;
+
+export const PLACEHOLDER = "/placeholder.svg";

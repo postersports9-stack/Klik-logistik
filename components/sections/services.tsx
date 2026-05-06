@@ -6,38 +6,24 @@ import { SITE_IMAGES } from "@/lib/constants/images";
 const services = [
   {
     id: "service-1",
-    title: "Груба градба и конструкција",
-    image: SITE_IMAGES.services.construction,
+    title: "Превоз на роба",
+    image: SITE_IMAGES.services.domestic,
     description:
-      "Бетонирање, ѕидарски работи, новоградба и градба на куќа по систем клуч на рака.",
+      "Брз и сигурен превоз на палетизирана и непалетизирана стока низ цела Македонија.",
   },
   {
     id: "service-2",
-    title: "Покривни работи",
-    image: SITE_IMAGES.services.roofing,
+    title: "Меѓународен транспорт",
+    image: SITE_IMAGES.services.international,
     description:
-      "Изработка на покривна конструкција, покривање покриви и лимени покриви.",
+      "Превоз на стока од и до европските држави со целосна документација и следење на пратката.",
   },
   {
     id: "service-3",
-    title: "Реновирање и внатрешно уредување",
-    image: SITE_IMAGES.services.renovation,
+    title: "Логистички решенија",
+    image: SITE_IMAGES.services.logistics,
     description:
-      "Комплетно реновирање на куќи, станови и бањи со врвен квалитет.",
-  },
-  {
-    id: "service-4",
-    title: "Инсталации (Водовод и Греење)",
-    image: SITE_IMAGES.services.plumbing,
-    description:
-      "Водоинсталатерски работи, системи за греење вклучувајќи подно и електрично подно греење.",
-  },
-  {
-    id: "service-5",
-    title: "Енергетска ефикасност",
-    image: SITE_IMAGES.services.hvac,
-    description:
-      "Монтажа на клима уреди, топлински пумпи и соларни системи.",
+      "Прилагодени логистички решенија за вашиот бизнис — од планирање на рута до испорака.",
   },
 ];
 
@@ -45,10 +31,10 @@ export function Services() {
   return (
     <div id="uslugi">
       <Feature72
-        heading="Нашите Услуги"
-        description="Од идеја до реализација. Комплетни градежни и инсталатерски услуги."
-        linkText="ЈАВЕТЕ НИ СЕ"
-        linkUrl="tel:075211440"
+        heading="Нашите услуги"
+        description="Доверлив партнер за превоз и логистика низ Македонија и Европа."
+        linkText="Јавете ни се"
+        linkUrl="tel:070233465"
         features={services}
       />
     </div>
