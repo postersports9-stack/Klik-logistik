@@ -5,9 +5,9 @@ import { motion, useInView } from "motion/react"
 
 const stats = [
   { value: 10, suffix: "+", label: "Години искуство" },
-  { value: 1200, suffix: "+", label: "Задоволни клиенти" },
-  { value: 500, suffix: "+", label: "Успешни проекти" },
-  { value: 100, suffix: "%", label: "Квалитет и гаранција" },
+  { value: 500, suffix: "+", label: "Испорачани пратки" },
+  { value: 50, suffix: "+", label: "Деловни клиенти" },
+  { value: 100, suffix: "%", label: "Сигурност и доверба" },
 ]
 
 function AnimatedCounter({ 
