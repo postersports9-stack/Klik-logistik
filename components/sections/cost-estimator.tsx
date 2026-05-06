@@ -13,14 +13,11 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const SERVICE_PRICES: Record<string, [number, number, number]> = {
-  "Груба градба и конструкција": [150, 250, 400],
-  "Покривни работи": [50, 80, 120],
-  "Реновирање и внатрешно уредување": [100, 200, 350],
-  "Инсталации (Водовод и Греење)": [30, 60, 100],
-  "Енергетска ефикасност": [40, 70, 150],
+const SERVICE_PRICES: Record<string, number> = {
+  "Превоз на роба (домашен)": 1.2,
+  "Меѓународен транспорт": 1.6,
+  "Логистички решенија": 1.4,
 };
 
 const CITIES = [
@@ -31,42 +28,29 @@ const SKOPJE_SUBURBS = [
   "Центар", "Карпош", "Аеродром", "Кисела Вода", "Ѓорче Петров", "Гази Баба", "Бутел", "Чаир", "Сарај", "Шуто Оризари", "Приградски населби"
 ];
 
-const QUALITY_TIERS = [
-  { label: "Стандардно", description: "Основни материјали", factor: 0 },
-  { label: "Напредно", description: "Квалитетни решенија", factor: 1 },
-  { label: "Премиум", description: "Врвни брендови", factor: 2 },
-];
 
 export function CostEstimator() {
-  const [service, setService] = useState("Груба градба и конструкција");
+  const [service, setService] = useState("Превоз на роба (домашен)");
   const [city, setCity] = useState("Скопје");
   const [suburb, setSuburb] = useState("Центар");
-  const [area, setArea] = useState(120);
-  const [tier, setTier] = useState(1); // 0, 1, 2
+  const [distance, setDistance] = useState(100);
   const [estimate, setEstimate] = useState({ min: 0, max: 0 });
 
   useEffect(() => {
     let multiplier = 1.0;
-    
     if (city === "Скопје") {
-      multiplier = 1.15;
-      if (["Центар", "Карпош", "Аеродром"].includes(suburb)) {
-        multiplier = 1.20;
-      }
+      multiplier = 1.0;
+      if (["Центар", "Карпош", "Аеродром"].includes(suburb)) multiplier = 1.05;
     } else if (["Битола", "Охрид", "Тетово"].includes(city)) {
-      multiplier = 1.05;
+      multiplier = 1.1;
     } else if (city === "Останато") {
-      multiplier = 0.90;
+      multiplier = 1.15;
     }
-
-    const basePrices = SERVICE_PRICES[service];
-    const pricePerM2 = basePrices[tier] * multiplier;
-    
-    const min = Math.round(pricePerM2 * area * 0.95);
-    const max = Math.round(pricePerM2 * area * 1.05);
-    
+    const perKm = SERVICE_PRICES[service] * multiplier;
+    const min = Math.round(perKm * distance * 0.9 + 30);
+    const max = Math.round(perKm * distance * 1.1 + 50);
     setEstimate({ min, max });
-  }, [service, city, suburb, area, tier]);
+  }, [service, city, suburb, distance]);
 
   const getFontSize = (val: number) => {
     const len = val.toLocaleString().length;
@@ -87,7 +71,7 @@ export function CostEstimator() {
             Пресметајте ги трошоците
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Дознајте колку ќе чини професионалното чистење за вашиот простор.
+            Брза проценка за трошокот за превоз. За точна понуда контактирајте нè.
           </p>
         </div>
 
@@ -157,48 +141,24 @@ export function CostEstimator() {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
-                  Површина за чистење (m²)
+                  Растојание (km)
                 </label>
                 <span className="text-2xl font-bold text-primary">
-                  {area} m²
+                  {distance} km
                 </span>
               </div>
               <Slider
-                value={[area]}
-                min={20}
-                max={300}
-                step={5}
-                onValueChange={(val) => setArea(val[0])}
+                value={[distance]}
+                min={10}
+                max={2000}
+                step={10}
+                onValueChange={(val) => setDistance(val[0])}
                 className="py-4"
               />
               <div className="flex justify-between text-xs text-muted-foreground tracking-tighter">
-                <span>20 m²</span>
-                <span>300 m²</span>
+                <span>10 km</span>
+                <span>2 000 km</span>
               </div>
-            </div>
-
-            <div className="space-y-4">
-              <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
-                Пакет на чистење
-              </label>
-              <Tabs
-                value={tier.toString()}
-                className="w-full"
-                onValueChange={(val) => setTier(parseInt(val))}
-              >
-                <TabsList className="grid h-auto w-full grid-cols-1 sm:grid-cols-3 sm:h-20 rounded-none bg-[#f5f5f5] p-1 gap-1 sm:gap-0">
-                  {QUALITY_TIERS.map((q, idx) => (
-                    <TabsTrigger
-                      key={idx}
-                      value={idx.toString()}
-                      className="flex flex-col gap-1 rounded-none py-2 data-[state=active]:bg-white data-[state=active]:shadow-sm"
-                    >
-                      <span className="text-sm font-bold">{q.label}</span>
-                      <span className="text-[10px] opacity-60">{q.description}</span>
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </Tabs>
             </div>
           </div>
 
@@ -220,7 +180,7 @@ export function CostEstimator() {
                   </span>
                 </div>
                 <p className="mt-6 text-sm text-white/40 leading-relaxed italic">
-                  * Пресметка за пакет: {service} во {city}{city === "Скопје" ? `, ${suburb}` : ""} за простор од {area}m².
+                  * Проценка за {service} во {city}{city === "Скопје" ? `, ${suburb}` : ""} за растојание од {distance} km.
                 </p>
               </div>
 
@@ -229,13 +189,13 @@ export function CostEstimator() {
                 <div className="flex items-start gap-3 rounded-lg bg-white/5 p-5 text-[13px] text-white/70">
                   <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <p>
-                    Сите средства за хигиена и машини ги обезбедуваме ние. Контактирајте не за фиксна понуда.
+                    Сите цени се ориентациони. Контактирајте нè за фиксна понуда базирана на вашата пратка.
                   </p>
                 </div>
                 
                 <a href="#kontakt" className="block">
                   <Button className="w-full h-14 rounded-none bg-primary text-sm font-bold tracking-widest text-white hover:bg-primary/90 transition-all shadow-[0_4px_20px_rgba(var(--primary),0.3)]">
-                    Резервирај термин
+                    Резервирај превоз
                   </Button>
                 </a>
               </div>
@@ -244,7 +204,7 @@ export function CostEstimator() {
         </div>
 
         <p className="mt-12 text-center text-xs text-muted-foreground">
-          Цените се ориентациони. За фиксна понуда нашиот тим прави бесплатен увид на локација.
+          Цените се ориентациони. Финалната цена зависи од видот на стока, рутата и времето на испорака.
         </p>
       </div>
     </section>

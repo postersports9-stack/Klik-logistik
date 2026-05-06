@@ -40,7 +40,7 @@ export function ContactForm() {
             </h2>
             
             <p className="mb-10 text-lg leading-relaxed text-[#666] text-pretty">
-              Подготвени сме да ви помогнеме со вашите градежни и инсталатерски проекти. Контактирајте нè денес за брза понуда и стручен совет.
+              Подготвени сме да ви помогнеме со превоз и логистика. Контактирајте нè за брза понуда.
             </p>
 
             <div className="space-y-6">
@@ -60,7 +60,7 @@ export function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-[#2a2a2a]">Телефон</p>
-                  <p className="text-[#666]">075 211 440</p>
+                  <p className="text-[#666]">070 233 465</p>
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@ export function ContactForm() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="075 211 440"
+                    placeholder="070 233 465"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="h-12 border-[#ddd] bg-white focus:border-primary focus:ring-primary"
@@ -113,11 +113,9 @@ export function ContactForm() {
                       <SelectValue placeholder="Изберете тип" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="construction">Груба градба и конструкција</SelectItem>
-                      <SelectItem value="roofing">Покривни работи</SelectItem>
-                      <SelectItem value="renovation">Реновирање и внатрешно уредување</SelectItem>
-                      <SelectItem value="installations">Инсталации (Водовод и Греење)</SelectItem>
-                      <SelectItem value="climate">Енергетска ефикасност и климатизација</SelectItem>
+                      <SelectItem value="domestic">Превоз на роба (домашен)</SelectItem>
+                      <SelectItem value="international">Меѓународен транспорт</SelectItem>
+                      <SelectItem value="logistics">Логистички решенија</SelectItem>
                       <SelectItem value="other">Друго</SelectItem>
                     </SelectContent>
                   </Select>
