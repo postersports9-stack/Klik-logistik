@@ -9,6 +9,7 @@ export const SITE_IMAGES = {
     {
       src: T1,
       title: "Превоз на роба",
+      label: "",
       sub: "БРЗО И БЕЗБЕДНО",
       description: "Сигурен превоз на палетизирана и непалетизирана стока низ цела држава."
     },
@@ -38,8 +39,10 @@ export const SITE_IMAGES = {
     v2: T5,
   },
   portfolio: {
-    residential: [T1, T2, T3, T4],
-    commercial: [T2, T3, T4, T5],
+    domestic: [T1, T2, T3, T4],
+    international: [T2, T3, T4, T5],
     specialized: [T1, T3, T4, T5],
   }
 } as const;
+
+export const PLACEHOLDER = "/placeholder.svg";
