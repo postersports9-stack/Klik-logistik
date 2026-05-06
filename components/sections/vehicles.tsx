@@ -15,6 +15,7 @@ import { VEHICLES, type Vehicle } from "@/lib/constants/vehicles";
 import { BRAND } from "@/lib/constants/brand";
 
 export function Vehicles() {
+  const [open, setOpen] = useState(false);
   const [active, setActive] = useState<Vehicle | null>(null);
 
   return (
@@ -36,7 +37,8 @@ export function Vehicles() {
           {VEHICLES.map((v) => (
             <button
               key={v.id}
-              onClick={() => setActive(v)}
+              type="button"
+              onClick={() => { setActive(v); setOpen(true); }}
               className="group flex flex-col overflow-hidden border border-border bg-white text-left transition-shadow hover:shadow-lg"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#eee]">
@@ -63,7 +65,10 @@ export function Vehicles() {
         </div>
       </div>
 
-      <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
+      <Dialog open={open} onOpenChange={(isOpen) => {
+        setOpen(isOpen);
+        if (!isOpen) setActive(null);
+      }}>
         <DialogContent className="max-w-2xl rounded-none p-0">
           {active && (
             <div>
@@ -136,7 +141,7 @@ export function Vehicles() {
                   </Button>
                   <Button
                     variant="outline"
-                    onClick={() => setActive(null)}
+                    onClick={() => setOpen(false)}
                     className="h-12 rounded-none"
                   >
                     Затвори
