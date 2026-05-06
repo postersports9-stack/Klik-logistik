@@ -20,7 +20,7 @@ export function Capabilities() {
           >
             <div className="relative">
               <h2 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-[#2a2a2a] text-balance md:text-4xl lg:text-5xl">
-                ВАШАТА ВИЗИЈА, НАША ИЗВЕДБА. ГРАДИМЕ ЗАЕДНО.
+                Вашата визија, наша изведба. Градиме заедно.
               </h2>
               
               <p className="mb-8 text-lg leading-relaxed text-[#555] text-pretty">

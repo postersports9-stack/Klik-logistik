@@ -36,7 +36,7 @@ export function ContactForm() {
           {/* Left Column - Contact Info */}
           <div>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
-              ПОБАРАЈТЕ ПОНУДА
+              Побарајте понуда
             </h2>
             
             <p className="mb-10 text-lg leading-relaxed text-[#666] text-pretty">
