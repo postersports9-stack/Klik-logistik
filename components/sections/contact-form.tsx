@@ -35,7 +35,7 @@ export function ContactForm() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column - Contact Info */}
           <div>
-            <h2 className="font-serif mb-4 text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
               ПОБАРАЈТЕ ПОНУДА
             </h2>
             
@@ -140,9 +140,9 @@ export function ContactForm() {
 
               <Button
                 type="submit"
-                className="font-serif h-14 w-full text-base font-semibold tracking-wide bg-primary text-white hover:bg-primary/90 rounded-none uppercase"
+                className="h-14 w-full text-base font-semibold tracking-wide bg-primary text-white hover:bg-primary/90 rounded-none"
               >
-                ИСПРАТИ ПРАШАЊЕ
+                Испрати порака
               </Button>
             </form>
           </div>

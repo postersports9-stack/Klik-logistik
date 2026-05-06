@@ -36,8 +36,8 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <p className="text-[10px] uppercase tracking-[0.2em] mb-1 opacity-80">{images[1].label}</p>
-                <h3 className="text-xl font-serif uppercase leading-tight">{images[1].title}</h3>
+                <p className="text-[10px] tracking-[0.2em] mb-1 opacity-80">{images[1].label}</p>
+                <h3 className="text-xl leading-tight">{images[1].title}</h3>
               </div>
             </div>
 
@@ -55,8 +55,8 @@ export function Hero() {
               <div className="absolute bottom-6 left-6 right-6 text-white md:bottom-8 md:left-8 md:right-8">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent -mx-8 -mb-8 h-[150%]" />
                 <div className="relative z-10">
-                  <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-1 opacity-80">{images[0].sub}</p>
-                  <h3 className="text-xl md:text-3xl font-serif text-white uppercase leading-tight">{images[0].title}</h3>
+                  <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] mb-1 opacity-80">{images[0].sub}</p>
+                  <h3 className="text-xl md:text-3xl text-white leading-tight">{images[0].title}</h3>
                 </div>
               </div>
             </div>
@@ -73,8 +73,8 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <p className="text-[10px] uppercase tracking-[0.2em] mb-1 opacity-80">{images[2].label}</p>
-                <h3 className="text-xl font-serif uppercase leading-tight">{images[2].title}</h3>
+                <p className="text-[10px] tracking-[0.2em] mb-1 opacity-80">{images[2].label}</p>
+                <h3 className="text-xl leading-tight">{images[2].title}</h3>
               </div>
             </div>
 
@@ -82,7 +82,7 @@ export function Hero() {
 
           {/* Buttons placed globally */}
           <div className="absolute bottom-4 z-30 flex gap-4 w-full justify-center px-4">
-            <Button asChild size="lg" className="h-12 px-8 bg-black text-white hover:bg-black/80 font-semibold uppercase tracking-widest text-sm rounded-none">
+            <Button asChild size="lg" className="h-12 px-8 bg-black text-white hover:bg-black/80 font-semibold tracking-widest text-sm rounded-none">
               <a href="#kontakt">
                 Побарај понуда
               </a>
@@ -108,10 +108,10 @@ export function Hero() {
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center p-8 text-center text-white">
-            <p className="text-[10px] uppercase tracking-[0.2em] mb-2 opacity-80">
+            <p className="text-[10px] tracking-[0.2em] mb-2 opacity-80">
               {images[0].sub}
             </p>
-            <h2 className="text-4xl font-serif uppercase mb-4 tracking-tight">
+            <h2 className="text-4xl mb-4 tracking-tight">
               {images[0].title}
             </h2>
             <p className="max-w-xs text-sm opacity-90 leading-relaxed mb-8">
@@ -122,7 +122,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="relative z-50 h-12 w-full bg-white text-black hover:bg-white/90 rounded-none uppercase text-xs tracking-widest font-bold pointer-events-auto"
+                className="relative z-50 h-12 w-full bg-white text-black hover:bg-white/90 rounded-none text-xs tracking-widest font-bold pointer-events-auto"
               >
                 <a href="#kontakt" className="w-full">
                   Пиши ни

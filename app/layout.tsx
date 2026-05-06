@@ -1,18 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({
+const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
-  weight: ["200", "400", "600"],
-  variable: '--font-inter',
+  weight: ["300", "400", "500", "700"],
+  variable: '--font-roboto',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'ЛАМБЕЛ ТЕРМ | Градежни и Инсталатерски Услуги',
-  description: 'Вашиот доверлив партнер за градба, реновирање и машински инсталации во Македонија.',
+  title: 'Клик Логистик | Превоз на роба - Скопје',
+  description: 'Klik Logistik DOOEL Skopje — сигурен превоз на роба низ Македонија и Европа.',
   generator: 'v0.app',
   other: {
     google: 'notranslate'
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="mk" className={inter.variable}>
+    <html lang="mk" className={roboto.variable}>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <Suspense fallback={null}>
           <HashScroll />

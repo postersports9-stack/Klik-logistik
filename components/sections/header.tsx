@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const navLinks = [
-  { href: "/", label: "ДОМА" },
-  { href: "/#za-nas", label: "ЗА НАС" },
-  { href: "/#uslugi", label: "УСЛУГИ" },
-  { href: "/#cenovnik", label: "ЦЕНОВНИК" },
-  { href: "/#iskustva", label: "ИСКУСТВА" },
+  { href: "/", label: "Дома" },
+  { href: "/#za-nas", label: "За нас" },
+  { href: "/#uslugi", label: "Услуги" },
+  { href: "/#cenovnik", label: "Ценовник" },
+  { href: "/#iskustva", label: "Искуства" },
 ]
 
 export function Header() {
@@ -75,7 +75,7 @@ export function Header() {
           </span>
           <Button asChild className="relative hidden font-sans overflow-hidden bg-primary text-white hover:bg-primary/90 sm:inline-flex group/btn h-9 px-6 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--primary),0.3)]">
             <a href="#kontakt">
-              <span className="relative z-10 text-[10px] font-light tracking-widest">КОНТАКТ</span>
+              <span className="relative z-10 text-[10px] font-light tracking-widest">Контакт</span>
               <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-shimmer" />
             </a>
           </Button>
@@ -128,7 +128,7 @@ export function Header() {
                   <p className="mb-4 text-sm text-white/60">075 211 440</p>
                   <Button asChild className="w-full font-sans bg-primary text-white hover:bg-primary/90">
                     <a href="#kontakt" className="w-full">
-                      КОНТАКТ
+                      Контакт
                     </a>
                   </Button>
                 </div>

@@ -19,7 +19,7 @@ export function Capabilities() {
             className="relative flex flex-col justify-center"
           >
             <div className="relative">
-              <h2 className="font-serif mb-6 text-3xl font-bold leading-tight tracking-tight text-[#2a2a2a] text-balance md:text-4xl lg:text-5xl">
+              <h2 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-[#2a2a2a] text-balance md:text-4xl lg:text-5xl">
                 ВАШАТА ВИЗИЈА, НАША ИЗВЕДБА. ГРАДИМЕ ЗАЕДНО.
               </h2>
               
@@ -27,7 +27,7 @@ export function Capabilities() {
                 Веруваме дека секој проект заслужува врвно внимание и прецизност. Со години им помагаме на семејствата и бизнисите во Македонија да ги претворат своите идеи во реалност—од груба градба до целосно реновирање и енергетски ефикасни решенија.
               </p>
 
-              <Button asChild className="font-serif h-12 px-8 text-sm font-semibold tracking-wide bg-primary text-white hover:bg-primary/90 rounded-none uppercase">
+              <Button asChild className="h-12 px-8 text-sm font-semibold tracking-wide bg-primary text-white hover:bg-primary/90 rounded-none">
                 <a href="#kontakt">Пиши ни</a>
               </Button>
             </div>

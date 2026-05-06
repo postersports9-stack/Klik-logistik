@@ -2,7 +2,7 @@ export function History() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-4xl px-4 text-center lg:px-8">
-        <h2 className="font-serif mb-8 text-3xl font-bold leading-tight tracking-tight text-[#2a2a2a] text-balance md:text-4xl lg:text-5xl">
+        <h2 className="mb-8 text-3xl font-bold leading-tight tracking-tight text-[#2a2a2a] text-balance md:text-4xl lg:text-5xl">
           ПОВЕЌЕ ОД 20 ГОДИНИ ИСКУСТВО: <span className="text-primary">ГРАДИМЕ ИДНИНА</span>
         </h2>
         

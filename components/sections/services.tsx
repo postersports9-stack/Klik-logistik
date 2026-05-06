@@ -33,7 +33,7 @@ export function Services() {
       <Feature72
         heading="Нашите Услуги"
         description="Од идеја до реализација. Комплетни градежни и инсталатерски услуги."
-        linkText="ЈАВЕТЕ НИ СЕ"
+        linkText="Јавете ни се"
         linkUrl="tel:075211440"
         features={services}
       />

@@ -77,11 +77,11 @@ export function Testimonials() {
         >
           <div className="flex justify-center">
             <div className="border border-border py-1 px-4 text-sm font-medium tracking-wide text-muted-foreground">
-              ОД НАШИТЕ КЛИЕНТИ
+              Од нашите клиенти
             </div>
           </div>
 
-          <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight mt-5 text-[#2a2a2a] text-center text-balance">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight mt-5 text-[#2a2a2a] text-center text-balance">
             Луѓето зборуваат најдобро
           </h2>
           <p className="text-center mt-5 text-muted-foreground leading-relaxed">

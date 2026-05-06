@@ -46,10 +46,10 @@ export function FAQ() {
     <section id="faq" className="relative bg-[#f9f9f9] py-20 lg:py-32 scroll-mt-24">
       <div className="mx-auto max-w-4xl px-4 lg:px-8">
         <div className="mb-14 text-center">
-          <div className="mb-4 inline-block border border-border px-4 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <div className="mb-4 inline-block border border-border px-4 py-1 text-xs font-medium tracking-widest text-muted-foreground">
             Прашања
           </div>
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
             Најчесто прашуваат
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">

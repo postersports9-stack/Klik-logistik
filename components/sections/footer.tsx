@@ -40,7 +40,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="mb-6 font-sans text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="mb-6 font-sans text-sm font-semibold tracking-wider text-white">
               Навигација
             </h3>
             <ul className="space-y-3">
@@ -59,7 +59,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="mb-6 font-sans text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="mb-6 font-sans text-sm font-semibold tracking-wider text-white">
               Услуги
             </h3>
             <ul className="space-y-3">
@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="mb-6 font-sans text-sm font-semibold uppercase tracking-wider text-white">
+            <h3 className="mb-6 font-sans text-sm font-semibold tracking-wider text-white">
               Контакт
             </h3>
             <ul className="space-y-4">

@@ -44,7 +44,7 @@ function AnimatedCounter({
   }, [isInView, value])
 
   return (
-    <span className="font-serif text-5xl font-bold text-primary md:text-6xl lg:text-7xl">
+    <span className="text-5xl font-bold text-primary md:text-6xl lg:text-7xl">
       {count.toLocaleString()}{suffix}
     </span>
   )
@@ -63,7 +63,7 @@ export function Stats() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl">
             Бројки што велат повеќе од зборови
           </h2>
         </motion.div>

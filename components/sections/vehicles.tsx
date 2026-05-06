@@ -93,7 +93,7 @@ export function Vehicles() {
 
                 <div className="mt-6 grid gap-6 md:grid-cols-2">
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <p className="text-xs tracking-widest text-muted-foreground">
                       Носивост
                     </p>
                     <p className="mt-1 text-lg font-semibold text-[#2a2a2a]">
@@ -101,7 +101,7 @@ export function Vehicles() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <p className="text-xs tracking-widest text-muted-foreground">
                       Габаритни димензии
                     </p>
                     <ul className="mt-1 text-sm text-[#2a2a2a]">
@@ -114,7 +114,7 @@ export function Vehicles() {
 
                 {active.features.length > 0 && (
                   <div className="mt-6">
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                    <p className="text-xs tracking-widest text-muted-foreground">
                       Опрема
                     </p>
                     <ul className="mt-2 flex flex-wrap gap-2">

@@ -79,11 +79,11 @@ export function CostEstimator() {
     <section id="cenovnik" className="relative overflow-hidden bg-white py-20 lg:py-32 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mb-16 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 border border-border px-4 py-1 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <div className="mb-4 inline-flex items-center gap-2 border border-border px-4 py-1 text-xs font-medium tracking-widest text-muted-foreground">
             <Calculator className="h-3 w-3" />
             Интерактивен Калкулатор
           </div>
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
             Пресметајте ги трошоците
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -94,7 +94,7 @@ export function CostEstimator() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div className="space-y-8">
             <div className="space-y-4">
-              <label className="text-sm font-semibold uppercase tracking-wider text-[#2a2a2a]">
+              <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
                 Тип на услуга
               </label>
               <Select value={service} onValueChange={setService}>
@@ -113,7 +113,7 @@ export function CostEstimator() {
 
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-4">
-                <label className="text-sm font-semibold uppercase tracking-wider text-[#2a2a2a]">
+                <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
                   Град
                 </label>
                 <Select value={city} onValueChange={(val) => {
@@ -138,7 +138,7 @@ export function CostEstimator() {
                     exit={{ opacity: 0, x: -10 }}
                     className="space-y-4"
                   >
-                    <label className="text-sm font-semibold uppercase tracking-wider text-[#2a2a2a]">
+                    <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
                       Општина / Населба
                     </label>
                     <Select value={suburb} onValueChange={setSuburb}>
@@ -156,10 +156,10 @@ export function CostEstimator() {
 
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-semibold uppercase tracking-wider text-[#2a2a2a]">
+                <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
                   Површина за чистење (m²)
                 </label>
-                <span className="font-serif text-2xl font-bold text-primary">
+                <span className="text-2xl font-bold text-primary">
                   {area} m²
                 </span>
               </div>
@@ -171,14 +171,14 @@ export function CostEstimator() {
                 onValueChange={(val) => setArea(val[0])}
                 className="py-4"
               />
-              <div className="flex justify-between text-xs text-muted-foreground uppercase tracking-tighter">
+              <div className="flex justify-between text-xs text-muted-foreground tracking-tighter">
                 <span>20 m²</span>
                 <span>300 m²</span>
               </div>
             </div>
 
             <div className="space-y-4">
-              <label className="text-sm font-semibold uppercase tracking-wider text-[#2a2a2a]">
+              <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
                 Пакет на чистење
               </label>
               <Tabs
@@ -205,17 +205,17 @@ export function CostEstimator() {
           <Card className="rounded-none border-none bg-[#1a1a1a] p-8 text-white lg:p-12 overflow-hidden">
             <div className="flex h-full flex-col justify-between space-y-12">
               <div>
-                <h3 className="mb-2 text-sm font-light uppercase tracking-[0.2em] text-white/50">
+                <h3 className="mb-2 text-sm font-light tracking-[0.2em] text-white/50">
                   Проценета цена
                 </h3>
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 leading-tight">
-                  <span className={`font-serif font-bold transition-all duration-300 ${getFontSize(estimate.min)}`}>
+                  <span className={`font-bold transition-all duration-300 ${getFontSize(estimate.min)}`}>
                     €{estimate.min.toLocaleString()}
                   </span>
                   <span className="text-2xl font-light text-white/30 md:text-3xl">
                     –
                   </span>
-                  <span className={`font-serif font-bold text-primary transition-all duration-300 ${getFontSize(estimate.max)}`}>
+                  <span className={`font-bold text-primary transition-all duration-300 ${getFontSize(estimate.max)}`}>
                     €{estimate.max.toLocaleString()}
                   </span>
                 </div>
@@ -234,7 +234,7 @@ export function CostEstimator() {
                 </div>
                 
                 <a href="#kontakt" className="block">
-                  <Button className="w-full h-14 rounded-none bg-primary text-sm font-bold uppercase tracking-widest text-white hover:bg-primary/90 transition-all shadow-[0_4px_20px_rgba(var(--primary),0.3)]">
+                  <Button className="w-full h-14 rounded-none bg-primary text-sm font-bold tracking-widest text-white hover:bg-primary/90 transition-all shadow-[0_4px_20px_rgba(var(--primary),0.3)]">
                     Резервирај термин
                   </Button>
                 </a>
