@@ -20,11 +20,11 @@ export function Capabilities() {
           >
             <div className="relative">
               <h2 className="mb-6 text-3xl font-bold leading-tight tracking-tight text-[#2a2a2a] text-balance md:text-4xl lg:text-5xl">
-                Вашата визија, наша изведба. Градиме заедно.
+                Сигурен превоз на роба низ Македонија и Европа.
               </h2>
-              
+
               <p className="mb-8 text-lg leading-relaxed text-[#555] text-pretty">
-                Веруваме дека секој проект заслужува врвно внимание и прецизност. Со години им помагаме на семејствата и бизнисите во Македонија да ги претворат своите идеи во реалност—од груба градба до целосно реновирање и енергетски ефикасни решенија.
+                Клик Логистик нуди професионален превоз на палетизирана и непалетизирана стока, со флексибилни возила прилагодени на различни типови товар. Брзина, доверба и одговорност во секоја испорака.
               </p>
 
               <Button asChild className="h-12 px-8 text-sm font-semibold tracking-wide bg-primary text-white hover:bg-primary/90 rounded-none">
@@ -47,7 +47,7 @@ export function Capabilities() {
               >
                 <Image
                   src={SITE_IMAGES.capabilities[0]}
-                  alt="Градежни работи"
+                  alt="Камион на пат"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   quality={85}
@@ -59,7 +59,7 @@ export function Capabilities() {
               >
                 <Image
                   src={SITE_IMAGES.capabilities[1]}
-                  alt="Квалитетни материјали"
+                  alt="Превоз на стока"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   quality={85}
@@ -73,7 +73,7 @@ export function Capabilities() {
               >
                 <Image
                   src={SITE_IMAGES.capabilities[2]}
-                  alt="Реновиран простор"
+                  alt="Натоварна рампа"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   quality={85}
@@ -85,7 +85,7 @@ export function Capabilities() {
               >
                 <Image
                   src={SITE_IMAGES.capabilities[3]}
-                  alt="Инсталации"
+                  alt="Меѓународен транспорт"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   quality={85}
@@ -97,7 +97,7 @@ export function Capabilities() {
               >
                 <Image
                   src={SITE_IMAGES.capabilities[4]}
-                  alt="Внимание на детали"
+                  alt="Логистика"
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   quality={85}
