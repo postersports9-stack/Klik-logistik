@@ -67,7 +67,7 @@ export function CostEstimator() {
       <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
         <SectionHeading
           number="03"
-          eyebrow="Изарчунај цена"
+          eyebrow="Израчунај цена"
           title="Брза проценка."
           lead="Внеси релација и тонажа. Точна цена со повратен повик во 30 минути."
         />
@@ -119,6 +119,12 @@ export function CostEstimator() {
                   ))}
                 </select>
               </Field>
+              <Field label="Датум">
+                <input
+                  type="date"
+                  className="block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                />
+              </Field>
             </div>
           </div>
 
@@ -162,7 +168,7 @@ export function CostEstimator() {
                   />
                   <button
                     type="submit"
-                    className="mt-3 block h-12 w-full bg-black text-[14px] font-medium tracking-wide text-white transition-colors hover:bg-black/85"
+                    className="mt-3 block h-12 w-full bg-black text-[14px] font-medium tracking-wide text-white transition-colors duration-100 hover:bg-black/85"
                   >
                     Резервирај
                   </button>
