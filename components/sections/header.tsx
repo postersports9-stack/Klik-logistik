@@ -10,7 +10,6 @@ const navLinks = [
   { href: "#uslugi", label: "Услуги" },
   { href: "#vozila", label: "Возила" },
   { href: "#kalkulator", label: "Калкулатор" },
-  { href: "/uvoz-izvoz", label: "Увоз-Извоз" },
   { href: "#kontakt", label: "Контакт" },
 ]
 

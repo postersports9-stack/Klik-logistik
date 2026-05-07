@@ -3,8 +3,17 @@ import { MapPin } from "lucide-react"
 
 export function TopBar() {
   return (
-    <div className="border-b border-kl-border bg-white">
+    <div className="relative border-b border-kl-border bg-white">
       <div className="mx-auto flex h-20 max-w-[1120px] items-center justify-between px-6 md:px-8">
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <a
+            href="/uvoz-izvoz"
+            className="inline-block bg-kl-ink px-5 py-2 text-[14px] font-medium text-white transition-colors duration-100 hover:bg-kl-ink-strong"
+          >
+            Увоз-Извоз
+          </a>
+        </div>
+
         <div className="flex items-center gap-3">
           <Image
             src="/brand-logo.png"
