@@ -16,14 +16,14 @@ export function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent md:via-black/20 md:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 from-0% to-transparent to-[60%]" />
       <div className="relative z-10 mx-auto flex h-full max-w-[1120px] items-center px-6 md:px-8">
         <div className="grid w-full grid-cols-12 gap-8">
-          <div className="col-span-12 md:col-span-7 lg:col-span-6">
+          <div className="col-span-12 md:col-span-6">
             <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/80">
               Транспорт и логистика · Скопје
             </p>
-            <h1 className="mt-4 text-[40px] leading-[48px] font-medium tracking-[-0.02em] text-white md:text-[64px] md:leading-[72px]">
+            <h1 className="mt-4 text-[32px] leading-[40px] font-medium tracking-[-0.02em] text-white md:text-[64px] md:leading-[72px]">
               Робата ваша.
               <br />
               Времето наше.
