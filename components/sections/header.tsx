@@ -1,12 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { BRAND } from "@/lib/constants/brand"
-import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#uslugi", label: "Услуги" },
@@ -17,24 +16,11 @@ const navLinks = [
 
 export function Header() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 h-16 bg-white",
-        scrolled ? "border-b border-kl-border" : "border-b border-transparent"
-      )}
-    >
+    <header className="sticky top-0 z-50 h-16 bg-kl-ink text-white">
       <div className="mx-auto flex h-full max-w-[1120px] items-center justify-between px-6 md:px-8">
-        <Link href="/" className="flex items-center gap-2 text-[18px] font-medium tracking-tight text-kl-ink">
+        <Link href="/" className="flex items-center gap-2 text-[18px] font-medium tracking-tight text-white">
           <Image
             src="/brand-logo.png"
             alt="Klik Logistik"
@@ -51,14 +37,14 @@ export function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[14px] font-normal text-kl-ink hover:underline underline-offset-[6px] decoration-1"
+              className="text-[14px] font-normal text-white hover:underline underline-offset-[6px] decoration-1 hover:decoration-kl-accent"
             >
               {l.label}
             </a>
           ))}
           <a
             href={BRAND.phoneHref}
-            className="text-[14px] font-medium text-kl-ink transition-colors hover:text-kl-accent"
+            className="text-[14px] font-medium text-white transition-colors hover:text-kl-accent"
           >
             {BRAND.phone}
           </a>
@@ -67,14 +53,14 @@ export function Header() {
         <div className="flex items-center gap-2 md:hidden">
           <a
             href={BRAND.phoneHref}
-            className="px-2 text-[14px] font-medium text-kl-ink"
+            className="px-2 text-[14px] font-medium text-white"
             aria-label="Повикај"
           >
             {BRAND.phone}
           </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <button aria-label="Отвори мени" className="p-2 text-kl-ink">
+              <button aria-label="Отвори мени" className="p-2 text-white">
                 <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
