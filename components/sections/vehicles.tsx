@@ -57,7 +57,7 @@ const vehicles: Vehicle[] = [
 export function Vehicles() {
   return (
     <section id="vozila" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
         <SectionHeading
           number="02"
           eyebrow="Возила"
@@ -65,11 +65,11 @@ export function Vehicles() {
           lead="6 возила во редовен сообраќај, 2.5 t до 24 t. Сертифицирани возачи, GPS следење."
         />
 
-        <ul className="mt-12">
+        <ul className="mt-8">
           {vehicles.map((v, i) => (
             <li
               key={v.name}
-              className="grid grid-cols-12 gap-6 border-b border-kl-border py-10 md:gap-10"
+              className="grid grid-cols-12 gap-6 border-b border-kl-border py-6 md:gap-10"
             >
               <div className="col-span-12 md:col-span-4">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-kl-subtle">

@@ -36,10 +36,10 @@ function Stars() {
 export function Testimonials() {
   return (
     <section className="bg-[#FAF8F5]">
-      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
         <SectionHeading number="05" eyebrow="Клиенти" title="Доверба од клиентите." />
 
-        <figure className="mx-auto mt-12 max-w-[720px]">
+        <figure className="mx-auto mt-8 max-w-[720px]">
           <Stars />
           <blockquote className="mt-4 text-[22px] leading-[34px] font-normal text-kl-ink">
             "{lead.quote}"
@@ -49,7 +49,7 @@ export function Testimonials() {
           </div>
         </figure>
 
-        <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
           {others.map((t) => (
             <figure key={t.name}>
               <Stars />

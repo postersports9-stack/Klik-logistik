@@ -8,7 +8,7 @@ const stats = [
 export function Stats() {
   return (
     <section className="bg-kl-ink text-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
         <div className="border-t border-white/15 pt-6">
           <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/60">
             <span className="border-b border-kl-accent pb-0.5 text-white">04</span> — Бројки
@@ -18,7 +18,7 @@ export function Stats() {
           </h2>
         </div>
 
-        <ul className="mt-12 grid grid-cols-2 md:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <li
               key={s.label}

@@ -38,7 +38,7 @@ const services = [
 export function Services() {
   return (
     <section id="uslugi" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
         <SectionHeading
           number="01"
           eyebrow="Услуги"
@@ -46,7 +46,7 @@ export function Services() {
           lead="Шест клучни услуги — секоја со посветен диспечер и фиксни рокови."
         />
 
-        <div className="mt-12 grid grid-cols-12 gap-10">
+        <div className="mt-8 grid grid-cols-12 gap-10">
           <div className="relative col-span-12 hidden xl:col-span-4 xl:block">
             <div className="sticky top-24 aspect-[3/4] w-full overflow-hidden bg-kl-subtle">
               <Image

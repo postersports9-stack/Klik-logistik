@@ -20,7 +20,7 @@ export function ContactForm() {
 
   return (
     <section id="kontakt" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
         <SectionHeading
           number="06"
           eyebrow="Контакт"
@@ -28,7 +28,7 @@ export function ContactForm() {
           lead="Одговараме во 30 минути работно време."
         />
 
-        <div className="mt-12 grid grid-cols-12 gap-10">
+        <div className="mt-8 grid grid-cols-12 gap-10">
           <div className="col-span-12 md:col-span-7">
             {done ? (
               <p className="text-[16px] text-kl-ink">

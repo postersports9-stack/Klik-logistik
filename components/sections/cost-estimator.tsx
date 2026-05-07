@@ -75,7 +75,7 @@ export function CostEstimator() {
         className="object-cover"
       />
       <div className="absolute inset-0 bg-white/92" />
-      <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+      <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
         <SectionHeading
           number="03"
           eyebrow="Израчунај цена"
@@ -83,7 +83,7 @@ export function CostEstimator() {
           lead="Внеси релација и тонажа. Точна цена со повратен повик во 30 минути."
         />
 
-        <div className="mt-12 grid grid-cols-12 gap-10">
+        <div className="mt-8 grid grid-cols-12 gap-10">
           <div className="col-span-12 md:col-span-7">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <Field label="Од">
