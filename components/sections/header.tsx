@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -11,6 +10,7 @@ const navLinks = [
   { href: "#uslugi", label: "Услуги" },
   { href: "#vozila", label: "Возила" },
   { href: "#kalkulator", label: "Калкулатор" },
+  { href: "/uvoz-izvoz", label: "Увоз-Извоз" },
   { href: "#kontakt", label: "Контакт" },
 ]
 
@@ -20,35 +20,24 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 bg-kl-ink text-white">
       <div className="mx-auto flex h-full max-w-[1120px] items-center justify-between px-6 md:px-8">
-        <Link href="/" className="flex items-center gap-2 text-[18px] font-medium tracking-tight text-white">
-          <Image
-            src="/brand-logo.png"
-            alt="Klik Logistik"
-            width={32}
-            height={32}
-            priority
-            className="h-8 w-8 object-contain"
-          />
-          <span>Klik Logistik</span>
-        </Link>
-
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 md:flex flex-1 justify-center">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[14px] font-normal text-white hover:underline underline-offset-[6px] decoration-1 hover:decoration-kl-accent"
+              className="text-[15px] font-normal text-white hover:underline underline-offset-[6px] decoration-1 hover:decoration-kl-accent"
             >
               {l.label}
             </a>
           ))}
-          <a
-            href={BRAND.phoneHref}
-            className="text-[14px] font-medium text-white transition-colors hover:text-kl-accent"
-          >
-            {BRAND.phone}
-          </a>
         </nav>
+
+        <a
+          href={BRAND.phoneHref}
+          className="hidden text-[15px] font-medium text-white transition-colors hover:text-kl-accent md:block"
+        >
+          {BRAND.phone}
+        </a>
 
         <div className="flex items-center gap-2 md:hidden">
           <a
