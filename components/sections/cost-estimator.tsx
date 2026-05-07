@@ -1,212 +1,208 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Calculator, Info } from "lucide-react";
-import { Slider } from "@/components/ui/slider";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { useMemo, useState } from "react"
+import Image from "next/image"
+import { SectionHeading } from "@/components/sections/section-heading"
+import { SITE_IMAGES } from "@/lib/constants/images"
 
-const SERVICE_PRICES: Record<string, number> = {
-  "Превоз на роба (домашен)": 1.2,
-  "Меѓународен транспорт": 1.6,
-  "Логистички решенија": 1.4,
-};
+const cities: Record<string, [number, number]> = {
+  "Скопје": [42.0, 21.43],
+  "Битола": [41.03, 21.33],
+  "Прилеп": [41.34, 21.55],
+  "Куманово": [42.13, 21.71],
+  "Тетово": [42.0, 20.97],
+  "Охрид": [41.11, 20.8],
+  "Штип": [41.74, 22.19],
+  "Велес": [41.71, 21.78],
+}
 
-const CITIES = [
-  "Скопје", "Битола", "Охрид", "Тетово", "Куманово", "Прилеп", "Велес", "Штип", "Останато"
-];
+const cityNames = Object.keys(cities)
 
-const SKOPJE_SUBURBS = [
-  "Центар", "Карпош", "Аеродром", "Кисела Вода", "Ѓорче Петров", "Гази Баба", "Бутел", "Чаир", "Сарај", "Шуто Оризари", "Приградски населби"
-];
+const cargoMultipliers: Record<string, number> = {
+  "Палети": 1,
+  "Расути": 1.1,
+  "ADR": 1.5,
+  "Комбиниран": 1.2,
+}
 
+const cargoNames = Object.keys(cargoMultipliers)
+
+function haversineKm(a: [number, number], b: [number, number]) {
+  const R = 6371
+  const toRad = (d: number) => (d * Math.PI) / 180
+  const dLat = toRad(b[0] - a[0])
+  const dLon = toRad(b[1] - a[1])
+  const lat1 = toRad(a[0])
+  const lat2 = toRad(b[0])
+  const x =
+    Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2
+  return Math.round(2 * R * Math.asin(Math.sqrt(x)))
+}
 
 export function CostEstimator() {
-  const [service, setService] = useState("Превоз на роба (домашен)");
-  const [city, setCity] = useState("Скопје");
-  const [suburb, setSuburb] = useState("Центар");
-  const [distance, setDistance] = useState(100);
-  const [estimate, setEstimate] = useState({ min: 0, max: 0 });
+  const [from, setFrom] = useState("Скопје")
+  const [to, setTo] = useState("Битола")
+  const [tonnage, setTonnage] = useState(3)
+  const [cargo, setCargo] = useState("Палети")
+  const [phone, setPhone] = useState("")
+  const [reserved, setReserved] = useState(false)
 
-  useEffect(() => {
-    let multiplier = 1.0;
-    if (city === "Скопје") {
-      multiplier = 1.0;
-      if (["Центар", "Карпош", "Аеродром"].includes(suburb)) multiplier = 1.05;
-    } else if (["Битола", "Охрид", "Тетово"].includes(city)) {
-      multiplier = 1.1;
-    } else if (city === "Останато") {
-      multiplier = 1.15;
-    }
-    const perKm = SERVICE_PRICES[service] * multiplier;
-    const min = Math.round(perKm * distance * 0.9 + 30);
-    const max = Math.round(perKm * distance * 1.1 + 50);
-    setEstimate({ min, max });
-  }, [service, city, suburb, distance]);
+  const { km, base, surcharge, total } = useMemo(() => {
+    const km = haversineKm(cities[from], cities[to])
+    const ratePerKm = 0.95
+    const base = Math.round(km * ratePerKm)
+    const mult = cargoMultipliers[cargo] ?? 1
+    const tonnageBump = Math.max(0, tonnage - 1) * 8
+    const surcharge = Math.round(base * (mult - 1) + tonnageBump)
+    const total = base + surcharge
+    return { km, base, surcharge, total }
+  }, [from, to, tonnage, cargo])
 
-  const getFontSize = (val: number) => {
-    const len = val.toLocaleString().length;
-    if (len > 9) return "text-3xl md:text-4xl";
-    if (len > 7) return "text-4xl md:text-5xl";
-    return "text-4xl md:text-6xl";
-  };
+  function reserve(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    console.info("[CostEstimator]", { from, to, tonnage, cargo, phone, total })
+    setReserved(true)
+  }
 
   return (
-    <section id="cenovnik" className="relative overflow-hidden bg-white py-20 lg:py-32 scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="mb-16 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 border border-border px-4 py-1 text-xs font-medium tracking-widest text-muted-foreground">
-            <Calculator className="h-3 w-3" />
-            Интерактивен Калкулатор
-          </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl lg:text-5xl">
-            Пресметајте ги трошоците
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Брза проценка за трошокот за превоз. За точна понуда контактирајте нè.
-          </p>
-        </div>
+    <section id="kalkulator" className="relative overflow-x-hidden">
+      <Image
+        src={SITE_IMAGES.capabilities[1]}
+        alt=""
+        fill
+        sizes="100vw"
+        quality={80}
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-white/92" />
+      <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+        <SectionHeading
+          number="03"
+          eyebrow="Израчунај цена"
+          title="Брза проценка."
+          lead="Внеси релација и тонажа. Точна цена со повратен повик во 30 минути."
+        />
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
-                Тип на услуга
-              </label>
-              <Select value={service} onValueChange={setService}>
-                <SelectTrigger className="h-auto min-h-[56px] py-3 text-left w-full rounded-none border-border bg-white text-sm [&>span]:whitespace-normal [&>span]:break-words">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.keys(SERVICE_PRICES).map((s) => (
-                    <SelectItem key={s} value={s}>
-                      {s}
-                    </SelectItem>
+        <div className="mt-8 grid grid-cols-12 gap-10">
+          <div className="col-span-12 md:col-span-7">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <Field label="Од">
+                <select
+                  value={from}
+                  onChange={(e) => setFrom(e.target.value)}
+                  className="block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                >
+                  {cityNames.map((c) => (
+                    <option key={c}>{c}</option>
                   ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="space-y-4">
-                <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
-                  Град
-                </label>
-                <Select value={city} onValueChange={(val) => {
-                  setCity(val);
-                  if (val !== "Скопје") setSuburb("");
-                  else setSuburb("Центар");
-                }}>
-                  <SelectTrigger className="h-14 w-full rounded-none border-border bg-white">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {CITIES.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <AnimatePresence mode="wait">
-                {city === "Скопје" && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -10 }}
-                    className="space-y-4"
-                  >
-                    <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
-                      Општина / Населба
-                    </label>
-                    <Select value={suburb} onValueChange={setSuburb}>
-                      <SelectTrigger className="h-14 w-full rounded-none border-border bg-white">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {SKOPJE_SUBURBS.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <label className="text-sm font-semibold tracking-wider text-[#2a2a2a]">
-                  Растојание (km)
-                </label>
-                <span className="text-2xl font-bold text-primary">
-                  {distance} km
-                </span>
-              </div>
-              <Slider
-                value={[distance]}
-                min={10}
-                max={2000}
-                step={10}
-                onValueChange={(val) => setDistance(val[0])}
-                className="py-4"
-              />
-              <div className="flex justify-between text-xs text-muted-foreground tracking-tighter">
-                <span>10 km</span>
-                <span>2 000 km</span>
-              </div>
+                </select>
+              </Field>
+              <Field label="До">
+                <select
+                  value={to}
+                  onChange={(e) => setTo(e.target.value)}
+                  className="block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                >
+                  {cityNames.map((c) => (
+                    <option key={c}>{c}</option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Тонажа (t)">
+                <input
+                  type="number"
+                  min={0.5}
+                  max={24}
+                  step={0.5}
+                  value={tonnage}
+                  onChange={(e) => setTonnage(parseFloat(e.target.value || "0"))}
+                  className="block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                />
+              </Field>
+              <Field label="Тип на товар">
+                <select
+                  value={cargo}
+                  onChange={(e) => setCargo(e.target.value)}
+                  className="block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                >
+                  {cargoNames.map((c) => (
+                    <option key={c}>{c}</option>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Датум">
+                <input
+                  type="date"
+                  className="block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                />
+              </Field>
             </div>
           </div>
 
-          <Card className="rounded-none border-none bg-[#1a1a1a] p-8 text-white lg:p-12 overflow-hidden">
-            <div className="flex h-full flex-col justify-between space-y-12">
-              <div>
-                <h3 className="mb-2 text-sm font-light tracking-[0.2em] text-white/50">
-                  Проценета цена
-                </h3>
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 leading-tight">
-                  <span className={`font-bold transition-all duration-300 ${getFontSize(estimate.min)}`}>
-                    €{estimate.min.toLocaleString()}
-                  </span>
-                  <span className="text-2xl font-light text-white/30 md:text-3xl">
-                    –
-                  </span>
-                  <span className={`font-bold text-primary transition-all duration-300 ${getFontSize(estimate.max)}`}>
-                    €{estimate.max.toLocaleString()}
-                  </span>
+          <div className="col-span-12 md:col-span-5">
+            <div className="bg-kl-subtle p-8">
+              <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+                Проценета цена
+              </p>
+              <p className="mt-3 text-[40px] leading-[44px] font-medium tabular-nums text-kl-ink sm:text-[56px] sm:leading-[60px]">
+                €{total}
+              </p>
+              <dl className="mt-6 space-y-2 text-[14px]">
+                <div className="flex justify-between">
+                  <dt className="text-kl-muted">Километража</dt>
+                  <dd className="tabular-nums text-kl-ink">{km} km</dd>
                 </div>
-                <p className="mt-6 text-sm text-white/40 leading-relaxed italic">
-                  * Проценка за {service} во {city}{city === "Скопје" ? `, ${suburb}` : ""} за растојание од {distance} km.
+                <div className="flex justify-between">
+                  <dt className="text-kl-muted">Основа</dt>
+                  <dd className="tabular-nums text-kl-ink">€{base}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-kl-muted">Доплати</dt>
+                  <dd className="tabular-nums text-kl-ink">€{surcharge}</dd>
+                </div>
+              </dl>
+
+              {reserved ? (
+                <p className="mt-6 text-[14px] text-kl-ink">
+                  Резервирано. Диспечер ќе ве повика во рок од 30 минути.
                 </p>
-              </div>
-
-              <div className="space-y-8">
-                <div className="h-px bg-white/10 w-full" />
-                <div className="flex items-start gap-3 rounded-lg bg-white/5 p-5 text-[13px] text-white/70">
-                  <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <p>
-                    Сите цени се ориентациони. Контактирајте нè за фиксна понуда базирана на вашата пратка.
-                  </p>
-                </div>
-                
-                <a href="#kontakt" className="block">
-                  <Button className="w-full h-14 rounded-none bg-primary text-sm font-bold tracking-widest text-white hover:bg-primary/90 transition-all shadow-[0_4px_20px_rgba(var(--primary),0.3)]">
-                    Резервирај превоз
-                  </Button>
-                </a>
-              </div>
+              ) : (
+                <form onSubmit={reserve} className="mt-6">
+                  <p className="text-[13px] text-kl-muted">Прифаќаш? Внеси телефон.</p>
+                  <input
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="07X XXX XXX"
+                    className="mt-2 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+                  />
+                  <button
+                    type="submit"
+                    className="mt-3 block h-12 w-full bg-kl-accent text-[14px] font-medium tracking-wide text-kl-ink transition-colors duration-100 hover:bg-kl-accent-strong"
+                  >
+                    Резервирај
+                  </button>
+                </form>
+              )}
+              <p className="mt-3 text-[12px] text-kl-muted">
+                Цената е ориентациска. Финална потврда по повик.
+              </p>
             </div>
-          </Card>
+          </div>
         </div>
-
-        <p className="mt-12 text-center text-xs text-muted-foreground">
-          Цените се ориентациони. Финалната цена зависи од видот на стока, рутата и времето на испорака.
-        </p>
       </div>
     </section>
-  );
+  )
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="block text-[12px] font-medium uppercase tracking-[0.12em] text-kl-muted">
+        {label}
+      </span>
+      <div className="mt-1">{children}</div>
+    </label>
+  )
 }

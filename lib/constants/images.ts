@@ -1,4 +1,4 @@
-const T1 = "/images/transport-1.avif";
+const T1 = "/images/pallet-collection-service.avif";
 const T2 = "/images/transport-2.avif";
 const T3 = "/images/transport-3.avif";
 const T4 = "/images/transport-4.avif";

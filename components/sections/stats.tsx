@@ -1,93 +1,36 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-import { motion, useInView } from "motion/react"
-
 const stats = [
-  { value: 10, suffix: "+", label: "Години искуство" },
-  { value: 500, suffix: "+", label: "Испорачани пратки" },
-  { value: 50, suffix: "+", label: "Деловни клиенти" },
-  { value: 100, suffix: "%", label: "Сигурност и доверба" },
+  { value: "12+", label: "години" },
+  { value: "6", label: "возила" },
+  { value: "14", label: "земји" },
+  { value: "24/7", label: "диспечер" },
 ]
 
-function AnimatedCounter({ 
-  value, 
-  suffix, 
-  isInView 
-}: { 
-  value: number
-  suffix: string
-  isInView: boolean 
-}) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!isInView) return
-
-    const duration = 2000
-    const steps = 60
-    const stepValue = value / steps
-    const stepDuration = duration / steps
-    let current = 0
-
-    const timer = setInterval(() => {
-      current += stepValue
-      if (current >= value) {
-        setCount(value)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(current))
-      }
-    }, stepDuration)
-
-    return () => clearInterval(timer)
-  }, [isInView, value])
-
-  return (
-    <span className="text-5xl font-bold text-primary md:text-6xl lg:text-7xl">
-      {count.toLocaleString()}{suffix}
-    </span>
-  )
-}
-
 export function Stats() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
   return (
-    <section className="bg-[#f5f5f5] py-20 md:py-28">
-      <div ref={ref} className="mx-auto max-w-7xl px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-[#2a2a2a] md:text-4xl">
-            Бројки што велат повеќе од зборови
+    <section className="bg-kl-ink text-white">
+      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+        <div className="border-t border-white/15 pt-6">
+          <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/60">
+            <span className="border-b border-kl-accent pb-0.5 text-white">04</span> — Бројки
+          </div>
+          <h2 className="mt-6 text-[32px] leading-[40px] font-medium tracking-[-0.015em] md:text-[40px] md:leading-[48px]">
+            Што правиме во бројки.
           </h2>
-        </motion.div>
-        
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="flex flex-col items-center text-center"
-            >
-              <AnimatedCounter 
-                value={stat.value} 
-                suffix={stat.suffix} 
-                isInView={isInView} 
-              />
-              <p className="mt-3 max-w-[180px] text-sm text-muted-foreground md:text-base">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
         </div>
+
+        <ul className="mt-8 grid grid-cols-2 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <li
+              key={s.label}
+              className={`px-6 ${i < 3 ? "md:border-r md:border-white/15" : ""} ${i % 2 === 0 ? "border-r border-white/15 md:border-r" : ""}`}
+            >
+              <div className="text-[56px] leading-[64px] font-normal tabular-nums text-kl-accent md:text-[72px] md:leading-[80px]">
+                {s.value}
+              </div>
+              <div className="mt-2 text-[14px] text-white/70">{s.label}</div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
