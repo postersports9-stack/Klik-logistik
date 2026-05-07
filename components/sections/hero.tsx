@@ -20,7 +20,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex h-full max-w-[1120px] items-center px-6 md:px-8">
         <div className="grid w-full grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-6">
-            <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/80">
+            <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-white/80 sm:text-[12px] sm:tracking-[0.18em]">
               Транспорт и логистика · Скопје
             </p>
             <h1 className="mt-4 text-[32px] leading-[40px] font-medium tracking-[-0.02em] text-white md:text-[64px] md:leading-[72px]">
