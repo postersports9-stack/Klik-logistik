@@ -1,7 +1,9 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Image from "next/image"
 import { SectionHeading } from "@/components/sections/section-heading"
+import { SITE_IMAGES } from "@/lib/constants/images"
 
 const cities: Record<string, [number, number]> = {
   "Скопје": [42.0, 21.43],
@@ -63,8 +65,17 @@ export function CostEstimator() {
   }
 
   return (
-    <section id="kalkulator" className="overflow-x-hidden bg-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+    <section id="kalkulator" className="relative overflow-x-hidden">
+      <Image
+        src={SITE_IMAGES.capabilities[1]}
+        alt=""
+        fill
+        sizes="100vw"
+        quality={80}
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-white/92" />
+      <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
         <SectionHeading
           number="03"
           eyebrow="Израчунај цена"
