@@ -1,137 +1,45 @@
-"use client"
-
-import { useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-
+import { QuoteForm } from "@/components/ui/quote-form"
 import { SITE_IMAGES } from "@/lib/constants/images"
 
 export function Hero() {
-  const images = SITE_IMAGES.hero;
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.history.scrollRestoration = 'manual';
-      window.scrollTo(0, 0);
-    }
-  }, []);
+  const bg = SITE_IMAGES.hero[0].src
 
   return (
-    <>
-      {/* --- Desktop Layout (md and up) --- */}
-      <section className="hidden md:block relative min-h-screen bg-white pt-[80px]">
-        <div className="flex h-[calc(100vh-80px)] w-full items-center justify-center bg-white">
-          <div className="relative flex items-center justify-center gap-6 w-full max-w-[1920px] mx-auto px-6 pb-32 pt-[2vh]">
-
-            {/* Side Image Left */}
-            <div className="relative aspect-[3/4] w-[26vw] overflow-hidden shadow-xl bg-white group">
-              <Image
-                src={images[1].src}
-                alt={images[1].title}
-                fill
-                quality={100}
-                className="object-cover transition-transform duration-700"
-                sizes="(max-width: 1536px) 40vw, 800px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <p className="text-[10px] tracking-[0.2em] mb-1 opacity-80">{images[1].label}</p>
-                <h3 className="text-xl leading-tight">{images[1].title}</h3>
-              </div>
+    <section className="relative isolate min-h-[640px] max-h-[820px] h-[calc(100vh-64px)] w-full overflow-hidden bg-black pt-16">
+      <Image
+        src={bg}
+        alt="Klik Logistik фрахт"
+        fill
+        priority
+        quality={90}
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent md:via-black/20 md:to-transparent" />
+      <div className="relative z-10 mx-auto flex h-full max-w-[1120px] items-center px-6 md:px-8">
+        <div className="grid w-full grid-cols-12 gap-8">
+          <div className="col-span-12 md:col-span-7 lg:col-span-6">
+            <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/80">
+              Транспорт и логистика · Скопје
+            </p>
+            <h1 className="mt-4 text-[40px] leading-[48px] font-medium tracking-[-0.02em] text-white md:text-[64px] md:leading-[72px]">
+              Робата ваша.
+              <br />
+              Времето наше.
+            </h1>
+            <p className="mt-4 max-w-[480px] text-[16px] leading-[26px] text-white/80 md:text-[20px] md:leading-[30px]">
+              Сигурен превоз на палетизирана и непалетизирана стока низ Македонија и Европа.
+            </p>
+            <div className="mt-8 max-w-[440px]">
+              <QuoteForm variant="hero" />
             </div>
-
-            {/* Main Central Image */}
-            <div className="relative aspect-[3/4] w-[32vw] overflow-hidden shadow-2xl bg-white group z-10">
-              <Image
-                src={images[0].src}
-                alt={images[0].title}
-                fill
-                priority
-                quality={100}
-                className="object-cover transition-transform duration-700"
-                sizes="(max-width: 1536px) 60vw, 1200px"
-              />
-              <div className="absolute bottom-6 left-6 right-6 text-white md:bottom-8 md:left-8 md:right-8">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent -mx-8 -mb-8 h-[150%]" />
-                <div className="relative z-10">
-                  <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] mb-1 opacity-80">{images[0].sub}</p>
-                  <h3 className="text-xl md:text-3xl text-white leading-tight">{images[0].title}</h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Side Image Right */}
-            <div className="relative aspect-[3/4] w-[26vw] overflow-hidden shadow-xl bg-white group">
-              <Image
-                src={images[2].src}
-                alt={images[2].title}
-                fill
-                quality={100}
-                className="object-cover transition-transform duration-700"
-                sizes="(max-width: 1536px) 40vw, 800px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <p className="text-[10px] tracking-[0.2em] mb-1 opacity-80">{images[2].label}</p>
-                <h3 className="text-xl leading-tight">{images[2].title}</h3>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Buttons placed globally */}
-          <div className="absolute bottom-4 z-30 flex gap-4 w-full justify-center px-4">
-            <Button asChild size="lg" className="h-12 px-8 bg-black text-white hover:bg-black/80 font-semibold tracking-widest text-sm rounded-none">
-              <a href="#kontakt">
-                Побарај понуда
-              </a>
-            </Button>
+            <p className="mt-3 text-[13px] text-white/70">
+              Одговараме во рок од 30 минути · Пон–Саб 08:00–20:00
+            </p>
           </div>
         </div>
-      </section>
-
-      {/* --- Mobile View (below md) --- */}
-      <section className="md:hidden flex flex-col bg-white pt-20">
-        <div className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src={images[0].src}
-              alt={images[0].title}
-              fill
-              priority
-              quality={100}
-              className="object-cover"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
-
-          <div className="relative z-10 flex flex-col items-center justify-center p-8 text-center text-white">
-            <p className="text-[10px] tracking-[0.2em] mb-2 opacity-80">
-              {images[0].sub}
-            </p>
-            <h2 className="text-4xl mb-4 tracking-tight">
-              {images[0].title}
-            </h2>
-            <p className="max-w-xs text-sm opacity-90 leading-relaxed mb-8">
-              {images[0].description}
-            </p>
-
-            <div className="relative z-50 flex flex-col gap-3 w-full max-w-[200px]">
-              <Button
-                asChild
-                size="lg"
-                className="relative z-50 h-12 w-full bg-white text-black hover:bg-white/90 rounded-none text-xs tracking-widest font-bold pointer-events-auto"
-              >
-                <a href="#kontakt" className="w-full">
-                  Пиши ни
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
