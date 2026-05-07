@@ -168,7 +168,7 @@ export function CostEstimator() {
                   />
                   <button
                     type="submit"
-                    className="mt-3 block h-12 w-full bg-black text-[14px] font-medium tracking-wide text-white transition-colors duration-100 hover:bg-black/85"
+                    className="mt-3 block h-12 w-full bg-kl-accent text-[14px] font-medium tracking-wide text-kl-ink transition-colors duration-100 hover:bg-kl-accent-strong"
                   >
                     Резервирај
                   </button>

@@ -6,7 +6,7 @@ export function Hero() {
   const bg = SITE_IMAGES.hero[0].src
 
   return (
-    <section className="relative isolate min-h-[640px] max-h-[820px] h-[calc(100vh-64px)] w-full overflow-hidden bg-black pt-16">
+    <section className="relative isolate min-h-[640px] max-h-[820px] h-[calc(100vh-64px)] w-full overflow-hidden bg-kl-ink pt-16">
       <Image
         src={bg}
         alt="Klik Logistik фрахт"
@@ -16,7 +16,7 @@ export function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 from-0% to-transparent to-[60%]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#2C445F]/80 from-0% to-transparent to-[60%]" />
       <div className="relative z-10 mx-auto flex h-full max-w-[1120px] items-center px-6 md:px-8">
         <div className="grid w-full grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-6">
