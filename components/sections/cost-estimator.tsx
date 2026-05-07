@@ -75,7 +75,7 @@ export function CostEstimator() {
         className="object-cover"
       />
       <div className="absolute inset-0 bg-white/92" />
-      <div className="relative z-10 mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+      <div className="relative z-10 mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
         <SectionHeading
           number="03"
           eyebrow="Израчунај цена"
@@ -83,8 +83,8 @@ export function CostEstimator() {
           lead="Внеси релација и тонажа. Точна цена со повратен повик во 30 минути."
         />
 
-        <div className="mt-8 grid grid-cols-12 gap-10">
-          <div className="col-span-12 md:col-span-7">
+        <div className="mt-8 grid grid-cols-12 gap-6 md:gap-10">
+          <div className="col-span-12 min-w-0 md:col-span-7">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <Field label="Од">
                 <select
@@ -139,24 +139,24 @@ export function CostEstimator() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-5">
-            <div className="bg-kl-subtle p-8">
-              <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+          <div className="col-span-12 min-w-0 md:col-span-5">
+            <div className="bg-kl-subtle p-6 sm:p-8">
+              <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-kl-muted sm:text-[12px] sm:tracking-[0.18em]">
                 Проценета цена
               </p>
-              <p className="mt-3 text-[40px] leading-[44px] font-medium tabular-nums text-kl-ink sm:text-[56px] sm:leading-[60px]">
+              <p className="mt-3 break-words text-[36px] leading-[40px] font-medium tabular-nums text-kl-ink sm:text-[56px] sm:leading-[60px]">
                 €{total}
               </p>
               <dl className="mt-6 space-y-2 text-[14px]">
-                <div className="flex justify-between">
+                <div className="flex flex-wrap justify-between gap-x-3">
                   <dt className="text-kl-muted">Километража</dt>
                   <dd className="tabular-nums text-kl-ink">{km} km</dd>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-wrap justify-between gap-x-3">
                   <dt className="text-kl-muted">Основа</dt>
                   <dd className="tabular-nums text-kl-ink">€{base}</dd>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex flex-wrap justify-between gap-x-3">
                   <dt className="text-kl-muted">Доплати</dt>
                   <dd className="tabular-nums text-kl-ink">€{surcharge}</dd>
                 </div>

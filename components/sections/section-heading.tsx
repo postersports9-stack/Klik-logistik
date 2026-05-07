@@ -45,10 +45,10 @@ export function SectionHeading({ number, eyebrow, title, lead, id, className }: 
         className
       )}
     >
-      <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+      <div className="text-[11px] font-medium uppercase tracking-[0.1em] text-kl-muted sm:text-[12px] sm:tracking-[0.18em]">
         <span className="border-b border-kl-accent pb-0.5 text-kl-ink">{number}</span> — {eyebrow}
       </div>
-      <h2 className="mt-6 text-[32px] leading-[40px] font-medium tracking-[-0.015em] text-kl-ink md:text-[40px] md:leading-[48px]">
+      <h2 className="mt-6 text-[28px] leading-[36px] font-medium tracking-[-0.015em] text-kl-ink sm:text-[32px] sm:leading-[40px] md:text-[40px] md:leading-[48px]">
         {title}
       </h2>
       {lead && (

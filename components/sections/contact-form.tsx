@@ -20,7 +20,7 @@ export function ContactForm() {
 
   return (
     <section id="kontakt" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
         <SectionHeading
           number="06"
           eyebrow="Контакт"

@@ -57,7 +57,7 @@ const vehicles: Vehicle[] = [
 export function Vehicles() {
   return (
     <section id="vozila" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
         <SectionHeading
           number="02"
           eyebrow="Возила"
@@ -89,19 +89,19 @@ export function Vehicles() {
                 </div>
                 <h3 className="mt-2 text-[24px] font-medium leading-[32px] text-kl-ink">{v.name}</h3>
                 <dl className="mt-6 grid grid-cols-1 gap-x-10 gap-y-3 text-[14px] sm:grid-cols-2">
-                  <div className="flex justify-between border-b border-kl-border pb-2">
+                  <div className="flex flex-wrap justify-between gap-x-3 border-b border-kl-border pb-2">
                     <dt className="text-kl-muted">Носивост</dt>
                     <dd className="text-kl-ink">{v.payload}</dd>
                   </div>
-                  <div className="flex justify-between border-b border-kl-border pb-2">
+                  <div className="flex flex-wrap justify-between gap-x-3 border-b border-kl-border pb-2">
                     <dt className="text-kl-muted">Димензии</dt>
                     <dd className="text-kl-ink">{v.dims}</dd>
                   </div>
-                  <div className="flex justify-between border-b border-kl-border pb-2">
+                  <div className="flex flex-wrap justify-between gap-x-3 border-b border-kl-border pb-2">
                     <dt className="text-kl-muted">Палети</dt>
                     <dd className="text-kl-ink">{v.pallets}</dd>
                   </div>
-                  <div className="flex justify-between border-b border-kl-border pb-2">
+                  <div className="flex flex-wrap justify-between gap-x-3 border-b border-kl-border pb-2">
                     <dt className="text-kl-muted">Приколка</dt>
                     <dd className="text-kl-ink">{v.trailer}</dd>
                   </div>

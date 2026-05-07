@@ -38,7 +38,7 @@ const services = [
 export function Services() {
   return (
     <section id="uslugi" className="bg-[#ebebeb]">
-      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
         <SectionHeading
           number="01"
           eyebrow="Услуги"
@@ -46,7 +46,7 @@ export function Services() {
           lead="Шест клучни услуги — секоја со посветен диспечер и фиксни рокови."
         />
 
-        <div className="mt-8 grid grid-cols-12 gap-10">
+        <div className="mt-8 grid grid-cols-12 gap-6 md:gap-10">
           <div className="relative col-span-12 hidden xl:col-span-4 xl:block">
             <div className="sticky top-24 aspect-[3/4] w-full overflow-hidden bg-kl-subtle">
               <Image
@@ -59,12 +59,12 @@ export function Services() {
               />
             </div>
           </div>
-          <ul className="col-span-12 grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 xl:col-span-8">
+          <ul className="col-span-12 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 md:gap-x-10 md:gap-y-10 xl:col-span-8">
             {services.map((s) => (
-              <li key={s.n} className="border-t border-kl-border pt-6">
-                <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">{s.n}</div>
-                <h3 className="mt-3 text-[22px] font-medium leading-[28px] text-kl-ink">{s.title}</h3>
-                <p className="mt-2 text-[16px] leading-[26px] text-kl-muted">{s.body}</p>
+              <li key={s.n} className="min-w-0 border-t border-kl-border pt-6">
+                <div className="text-[11px] font-medium uppercase tracking-[0.1em] text-kl-muted sm:text-[12px] sm:tracking-[0.18em]">{s.n}</div>
+                <h3 className="mt-3 break-words text-[20px] font-medium leading-[26px] text-kl-ink sm:text-[22px] sm:leading-[28px]">{s.title}</h3>
+                <p className="mt-2 break-words text-[15px] leading-[24px] text-kl-muted sm:text-[16px] sm:leading-[26px]">{s.body}</p>
               </li>
             ))}
           </ul>

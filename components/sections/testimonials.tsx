@@ -36,7 +36,7 @@ function Stars() {
 export function Testimonials() {
   return (
     <section className="bg-[#FAF8F5]">
-      <div className="mx-auto max-w-[1120px] px-6 py-10 md:px-8 md:py-16">
+      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
         <SectionHeading number="05" eyebrow="Клиенти" title="Доверба од клиентите." />
 
         <figure className="mx-auto mt-8 max-w-[720px]">
