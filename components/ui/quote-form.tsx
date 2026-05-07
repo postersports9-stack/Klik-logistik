@@ -65,6 +65,20 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
           placeholder="07X XXX XXX"
         />
       </label>
+      <label className="mt-2 block">
+        <span className="block text-[12px] font-medium uppercase tracking-[0.12em] text-kl-muted">Тип на товар</span>
+        <select
+          name="cargo"
+          required
+          defaultValue="Палети"
+          className="mt-1 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+        >
+          <option>Палети</option>
+          <option>Расути</option>
+          <option>ADR</option>
+          <option>Комбиниран</option>
+        </select>
+      </label>
       <button
         type="submit"
         disabled={submitting}

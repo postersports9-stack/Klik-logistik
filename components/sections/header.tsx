@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { BRAND } from "@/lib/constants/brand"
@@ -33,8 +34,16 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-full max-w-[1120px] items-center justify-between px-6 md:px-8">
-        <Link href="/" className="text-[18px] font-medium tracking-tight text-kl-ink">
-          Klik Logistik
+        <Link href="/" className="flex items-center gap-2 text-[18px] font-medium tracking-tight text-kl-ink">
+          <Image
+            src="/brand-logo.png"
+            alt="Klik Logistik"
+            width={32}
+            height={32}
+            priority
+            className="h-8 w-8 object-contain"
+          />
+          <span>Klik Logistik</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -72,7 +81,10 @@ export function Header() {
             <SheetContent side="right" className="w-full bg-white p-0 sm:max-w-md">
             <div className="flex h-full flex-col">
               <div className="flex h-16 items-center justify-between border-b border-kl-border px-6">
-                <span className="text-[18px] font-medium text-kl-ink">Klik Logistik</span>
+                <span className="flex items-center gap-2 text-[18px] font-medium text-kl-ink">
+                  <Image src="/brand-logo.png" alt="Klik Logistik" width={28} height={28} className="h-7 w-7 object-contain" />
+                  Klik Logistik
+                </span>
                 <button onClick={() => setOpen(false)} aria-label="Затвори мени" className="p-2 text-kl-ink">
                   <X className="h-6 w-6" />
                 </button>

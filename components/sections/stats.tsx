@@ -2,7 +2,7 @@ import { SectionHeading } from "@/components/sections/section-heading"
 
 const stats = [
   { value: "12+", label: "години" },
-  { value: "35", label: "возила" },
+  { value: "6", label: "возила" },
   { value: "14", label: "земји" },
   { value: "24/7", label: "диспечер" },
 ]

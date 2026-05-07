@@ -62,7 +62,7 @@ export function Vehicles() {
           number="02"
           eyebrow="Возила"
           title="Возен парк."
-          lead="35 возила во редовен сообраќај, 2.5 t до 24 t. Сертифицирани возачи, GPS следење."
+          lead="6 возила во редовен сообраќај, 2.5 t до 24 t. Сертифицирани возачи, GPS следење."
         />
 
         <ul className="mt-12">
@@ -79,7 +79,7 @@ export function Vehicles() {
                     fill
                     quality={85}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover grayscale"
+                    className="object-cover"
                   />
                 </div>
               </div>

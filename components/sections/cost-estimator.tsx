@@ -63,7 +63,7 @@ export function CostEstimator() {
   }
 
   return (
-    <section id="kalkulator" className="bg-white">
+    <section id="kalkulator" className="overflow-x-hidden bg-white">
       <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
         <SectionHeading
           number="03"
@@ -133,7 +133,7 @@ export function CostEstimator() {
               <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
                 Проценета цена
               </p>
-              <p className="mt-3 text-[56px] leading-[60px] font-medium tabular-nums text-kl-ink">
+              <p className="mt-3 text-[40px] leading-[44px] font-medium tabular-nums text-kl-ink sm:text-[56px] sm:leading-[60px]">
                 €{total}
               </p>
               <dl className="mt-6 space-y-2 text-[14px]">
