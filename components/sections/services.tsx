@@ -1,42 +1,59 @@
-"use client";
-
-import { Feature72 } from "@/components/ui/feature-72";
-import { SITE_IMAGES } from "@/lib/constants/images";
+import { SectionHeading } from "@/components/sections/section-heading"
 
 const services = [
   {
-    id: "service-1",
-    title: "Превоз на роба",
-    image: SITE_IMAGES.services.domestic,
-    description:
-      "Брз и сигурен превоз на палетизирана и непалетизирана стока низ цела Македонија.",
-  },
-  {
-    id: "service-2",
+    n: "01",
     title: "Меѓународен транспорт",
-    image: SITE_IMAGES.services.international,
-    description:
-      "Превоз на стока од и до европските држави со целосна документација и следење на пратката.",
+    body: "Редовни линии низ ЕУ. Палетизирани и непалетизирани товари, групажи и комплет.",
   },
   {
-    id: "service-3",
-    title: "Логистички решенија",
-    image: SITE_IMAGES.services.logistics,
-    description:
-      "Прилагодени логистички решенија за вашиот бизнис — од планирање на рута до испорака.",
+    n: "02",
+    title: "Домашна дистрибуција",
+    body: "Превоз и достава низ Македонија со фиксни дневни релации.",
   },
-];
+  {
+    n: "03",
+    title: "Експрес курирски",
+    body: "Урген товар со точно дефиниран рок на испорака.",
+  },
+  {
+    n: "04",
+    title: "ADR и габаритни",
+    body: "Опасни и вонгабаритни товари со сертифицирани возила и возачи.",
+  },
+  {
+    n: "05",
+    title: "Складирање",
+    body: "Краткорочно и долгорочно складирање во магацин со 24/7 пристап.",
+  },
+  {
+    n: "06",
+    title: "Царинско застапување",
+    body: "Пакет услуги од подигање до царинење на крајна дестинација.",
+  },
+]
 
 export function Services() {
   return (
-    <div id="uslugi">
-      <Feature72
-        heading="Нашите услуги"
-        description="Доверлив партнер за превоз и логистика низ Македонија и Европа."
-        linkText="Јавете ни се"
-        linkUrl="tel:070233465"
-        features={services}
-      />
-    </div>
-  );
+    <section id="uslugi" className="bg-white">
+      <div className="mx-auto max-w-[1120px] px-6 py-20 md:px-8 md:py-32">
+        <SectionHeading
+          number="01"
+          eyebrow="Услуги"
+          title="Што превезуваме."
+          lead="Шест клучни услуги — секоја со посветен диспечер и фиксни рокови."
+        />
+
+        <ul className="mt-12 grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((s) => (
+            <li key={s.n} className="border-t border-kl-border pt-6">
+              <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">{s.n}</div>
+              <h3 className="mt-3 text-[22px] font-medium leading-[28px] text-kl-ink">{s.title}</h3>
+              <p className="mt-2 text-[16px] leading-[26px] text-kl-muted">{s.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
 }
