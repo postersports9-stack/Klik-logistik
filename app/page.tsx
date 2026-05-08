@@ -1,4 +1,3 @@
-import { TopBar } from "@/components/sections/top-bar"
 import { Header } from "@/components/sections/header"
 import { Hero } from "@/components/sections/hero"
 import { Services } from "@/components/sections/services"
@@ -13,7 +12,6 @@ import { ContactWidget } from "@/components/ui/contact-widget"
 export default function HomePage() {
   return (
     <main>
-      <TopBar />
       <Header />
       <Hero />
       <Services />

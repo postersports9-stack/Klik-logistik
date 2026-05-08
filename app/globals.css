@@ -37,14 +37,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  /* --- Klik Logistik redesign tokens (CB Moving palette) --- */
-  --kl-ink: #2C445F;
-  --kl-ink-strong: #1B2D40;
+  /* --- Klik Logistik monochrome tokens --- */
+  --kl-ink: #111111;
+  --kl-ink-strong: #000000;
   --kl-muted: #6B6B6B;
   --kl-border: #E5E5E5;
   --kl-subtle-bg: #F6F6F6;
-  --kl-accent: #FDC02F;
-  --kl-accent-strong: #E5A800;
+  --kl-accent: #1F1F1F;
+  --kl-accent-strong: #000000;
 }
 
 .dark {

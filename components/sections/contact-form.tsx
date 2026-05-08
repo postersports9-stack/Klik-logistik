@@ -58,7 +58,7 @@ export function ContactForm() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="h-12 bg-kl-accent text-[14px] font-medium tracking-wide text-kl-ink transition-colors duration-100 hover:bg-kl-accent-strong disabled:opacity-60 sm:col-span-2"
+                  className="h-12 bg-kl-accent text-[14px] font-medium tracking-wide text-white transition-colors duration-100 hover:bg-kl-accent-strong disabled:opacity-60 sm:col-span-2"
                 >
                   {submitting ? "Се испраќа…" : "Побарај понуда"}
                 </button>
