@@ -2,7 +2,6 @@ import { Header } from "@/components/sections/header"
 import { Hero } from "@/components/sections/hero"
 import { Services } from "@/components/sections/services"
 import { Vehicles } from "@/components/sections/vehicles"
-import { CostEstimator } from "@/components/sections/cost-estimator"
 import { Stats } from "@/components/sections/stats"
 import { Testimonials } from "@/components/sections/testimonials"
 import { ContactForm } from "@/components/sections/contact-form"
@@ -16,7 +15,6 @@ export default function HomePage() {
       <Hero />
       <Services />
       <Vehicles />
-      <CostEstimator />
       <Stats />
       <Testimonials />
       <ContactForm />

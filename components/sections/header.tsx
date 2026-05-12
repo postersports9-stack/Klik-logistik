@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 const navLinks = [
   { href: "#uslugi", label: "Услуги" },
   { href: "#vozila", label: "Возила" },
-  { href: "#kalkulator", label: "Калкулатор" },
+  { href: "#", label: "Калкулатор" },
   { href: "#kontakt", label: "Контакт" },
 ]
 
