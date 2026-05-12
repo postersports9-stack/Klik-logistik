@@ -24,7 +24,7 @@ export function Stats() {
               key={s.label}
               className={`px-4 sm:px-6 ${i < 3 ? "md:border-r md:border-white/15" : ""} ${i % 2 === 0 ? "border-r border-white/15 md:border-r" : ""}`}
             >
-              <div className="text-[44px] leading-[52px] font-normal tabular-nums text-kl-accent sm:text-[56px] sm:leading-[64px] md:text-[72px] md:leading-[80px]">
+              <div className="text-[44px] leading-[52px] font-normal tabular-nums text-kl-cta sm:text-[56px] sm:leading-[64px] md:text-[72px] md:leading-[80px]">
                 {s.value}
               </div>
               <div className="mt-2 text-[14px] text-white/70">{s.label}</div>
