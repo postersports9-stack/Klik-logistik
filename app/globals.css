@@ -45,6 +45,9 @@
   --kl-subtle-bg: #F6F6F6;
   --kl-accent: #1F1F1F;
   --kl-accent-strong: #000000;
+  --kl-cta: #FACC15;
+  --kl-cta-strong: #EAB308;
+  --kl-cta-foreground: #111111;
 }
 
 .dark {
@@ -80,6 +83,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --kl-cta: #FACC15;
+  --kl-cta-strong: #EAB308;
+  --kl-cta-foreground: #111111;
 }
 
 @theme inline {
@@ -129,6 +135,9 @@
   --color-kl-subtle: var(--kl-subtle-bg);
   --color-kl-accent: var(--kl-accent);
   --color-kl-accent-strong: var(--kl-accent-strong);
+  --color-kl-cta: var(--kl-cta);
+  --color-kl-cta-strong: var(--kl-cta-strong);
+  --color-kl-cta-foreground: var(--kl-cta-foreground);
 }
 
 @layer base {
