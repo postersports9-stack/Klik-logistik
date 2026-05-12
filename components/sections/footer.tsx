@@ -8,7 +8,7 @@ export function Footer() {
         <nav className="flex flex-wrap gap-6">
           <a href="#uslugi" className="transition-colors hover:text-white">Услуги</a>
           <a href="#vozila" className="transition-colors hover:text-white">Возила</a>
-          <a href="#" className="transition-colors hover:text-white">Калкулатор</a>
+          <a href="/klik-trejd" className="transition-colors hover:text-white">Клик Трејд</a>
           <a href="#kontakt" className="transition-colors hover:text-white">Политика на приватност</a>
         </nav>
         <div className="flex flex-col items-start gap-1 md:items-end">
