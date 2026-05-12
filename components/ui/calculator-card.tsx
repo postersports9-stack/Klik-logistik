@@ -124,7 +124,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             />
             <button
               type="submit"
-              className="mt-3 block h-12 w-full bg-kl-accent text-[14px] font-medium tracking-wide text-white transition-colors duration-100 hover:bg-kl-accent-strong"
+              className="mt-3 block h-12 w-full bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong"
             >
               Резервирај
             </button>
@@ -204,7 +204,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
               />
               <button
                 type="submit"
-                className="mt-3 block h-12 w-full bg-kl-accent text-[14px] font-medium tracking-wide text-white transition-colors duration-100 hover:bg-kl-accent-strong"
+                className="mt-3 block h-12 w-full bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong"
               >
                 Резервирај
               </button>

@@ -82,7 +82,7 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-3 block h-12 w-full bg-kl-accent text-[14px] font-medium tracking-wide text-white transition-colors duration-100 hover:bg-kl-accent-strong disabled:opacity-60"
+        className="mt-3 block h-12 w-full bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong disabled:opacity-60"
       >
         {submitting ? "Се испраќа…" : "Побарај понуда"}
       </button>
