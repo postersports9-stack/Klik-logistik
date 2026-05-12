@@ -4,7 +4,6 @@ import { useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { BRAND } from "@/lib/constants/brand"
 
 const navLinks = [
   { href: "#uslugi", label: "Услуги" },
@@ -50,21 +49,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href={BRAND.phoneHref}
-          className="hidden text-[15px] font-medium text-kl-ink transition-colors hover:text-kl-ink-strong md:block"
-        >
-          {BRAND.phone}
-        </a>
-
         <div className="flex items-center gap-2 md:hidden">
-          <a
-            href={BRAND.phoneHref}
-            className="px-2 text-[14px] font-medium text-kl-ink"
-            aria-label="Повикај"
-          >
-            {BRAND.phone}
-          </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button aria-label="Отвори мени" className="p-2 text-kl-ink">
@@ -94,11 +79,6 @@ export function Header() {
                     </a>
                   ))}
                 </nav>
-                <div className="mt-auto border-t border-kl-border px-6 py-6">
-                  <a href={BRAND.phoneHref} className="text-[18px] font-medium text-kl-ink">
-                    {BRAND.phone}
-                  </a>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
