@@ -1,5 +1,6 @@
 import { Star } from "lucide-react"
 import { SectionHeading } from "@/components/sections/section-heading"
+import { SectionWatermark } from "@/components/ui/section-watermark"
 
 const lead = {
   quote:
@@ -35,9 +36,10 @@ function Stars() {
 
 export function Testimonials() {
   return (
-    <section className="bg-[#FAF8F5]">
-      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
-        <SectionHeading number="05" eyebrow="Клиенти" title="Доверба од клиентите." />
+    <section id="klienti" data-theme="light" className="relative bg-[#FAF8F5]">
+      <div className="relative mx-auto max-w-[1120px] overflow-hidden px-4 py-10 sm:px-6 md:px-8 md:py-16">
+        <SectionWatermark text="Клиенти" position="tl" />
+        <SectionHeading number="06" eyebrow="Клиенти" title="Доверба од клиентите." />
 
         <figure className="mx-auto mt-8 max-w-[720px]">
           <Stars />

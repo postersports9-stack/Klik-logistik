@@ -14,7 +14,7 @@ export function KlikTrejdCta() {
         </div>
         <Link
           href="/klik-trejd"
-          className="inline-flex h-12 items-center justify-center bg-kl-cta px-6 text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong"
+          className="inline-flex h-12 items-center justify-center rounded-[8px] bg-kl-cta px-6 text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong"
         >
           Кон Клик Трејд
         </Link>

@@ -1,11 +1,12 @@
 import { Header } from "@/components/sections/header"
 import { Hero } from "@/components/sections/hero"
-import { Services } from "@/components/sections/services"
+import { CoverageMap } from "@/components/sections/coverage-map"
+import { About } from "@/components/sections/about"
 import { Vehicles } from "@/components/sections/vehicles"
+import { WhyUs } from "@/components/sections/why-us"
 import { Stats } from "@/components/sections/stats"
 import { Testimonials } from "@/components/sections/testimonials"
 import { ContactForm } from "@/components/sections/contact-form"
-import { KlikTrejdCta } from "@/components/sections/klik-trejd-cta"
 import { Footer } from "@/components/sections/footer"
 import { ContactWidget } from "@/components/ui/contact-widget"
 
@@ -14,11 +15,12 @@ export default function HomePage() {
     <main>
       <Header />
       <Hero />
-      <Services />
+      <CoverageMap />
+      <About />
       <Vehicles />
+      <WhyUs />
       <Stats />
       <Testimonials />
-      <KlikTrejdCta />
       <ContactForm />
       <Footer />
       <ContactWidget />

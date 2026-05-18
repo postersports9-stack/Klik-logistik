@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { SectionHeading } from "@/components/sections/section-heading"
+import { SectionWatermark } from "@/components/ui/section-watermark"
 import { SITE_IMAGES } from "@/lib/constants/images"
 
 type Vehicle = {
@@ -56,13 +57,14 @@ const vehicles: Vehicle[] = [
 
 export function Vehicles() {
   return (
-    <section id="vozila" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
+    <section id="vozila" data-theme="light" className="relative bg-white">
+      <div className="relative mx-auto max-w-[1120px] overflow-hidden px-4 py-10 sm:px-6 md:px-8 md:py-16">
+        <SectionWatermark text="Возила" position="tr" />
         <SectionHeading
-          number="02"
+          number="03"
           eyebrow="Возила"
           title="Возен парк."
-          lead="6 возила во редовен сообраќај, 2.5 t до 24 t. Сертифицирани возачи, GPS следење."
+          lead="Сите возила се опремени со натоварна рампа и електрични палетари со можност за подигање на роба до 1.500 кг."
         />
 
         <ul className="mt-8">

@@ -29,6 +29,7 @@ export const viewport: Viewport = {
 
 import { Suspense } from 'react'
 import { HashScroll } from '@/components/ui/hash-scroll'
+import { ScrollHighway } from '@/components/ui/scroll-highway'
 
 export default function RootLayout({
   children,
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <HashScroll />
         </Suspense>
+        <ScrollHighway />
         {children}
         <Analytics />
       </body>

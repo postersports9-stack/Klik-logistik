@@ -1,22 +1,42 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const navLinks = [
-  { href: "#uslugi", label: "Услуги" },
-  { href: "#vozila", label: "Возила" },
-  { href: "/klik-trejd", label: "Клик Трејд" },
-  { href: "#kontakt", label: "Контакт" },
+  { href: "/#pokritie", label: "Покритие" },
+  { href: "/#za-nas", label: "За нас" },
+  { href: "/#vozila", label: "Возила" },
+  { href: "/#zoshto-nas", label: "Зошто нас" },
+  { href: "/#brojki", label: "Бројки" },
+  { href: "/#klienti", label: "Клиенти" },
+  { href: "/cenovnik", label: "Ценовник" },
+  { href: "/#kontakt", label: "Контакт" },
 ]
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 h-16 sm:h-20 bg-white border-b border-kl-border text-kl-ink">
+    <header
+      className={[
+        "sticky top-0 z-50 h-16 sm:h-20 border-b text-kl-ink transition-shadow duration-200 ease-out",
+        "bg-white/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white/55",
+        scrolled
+          ? "border-kl-border/70 shadow-[0_1px_0_rgba(0,0,0,0.04),0_8px_24px_-12px_rgba(0,0,0,0.18)]"
+          : "border-transparent",
+      ].join(" ")}
+    >
       <div className="mx-auto flex h-full max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-6 md:px-8">
         <a href="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
           <Image
@@ -37,19 +57,19 @@ export function Header() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-4 lg:flex lg:gap-6 xl:gap-7">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[15px] font-normal text-kl-ink hover:underline underline-offset-[6px] decoration-1 hover:decoration-kl-ink"
+              className="text-[13px] font-normal text-kl-ink hover:underline underline-offset-[6px] decoration-1 hover:decoration-kl-ink lg:text-[14px]"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button aria-label="Отвори мени" className="p-2 text-kl-ink">

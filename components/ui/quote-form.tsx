@@ -41,7 +41,7 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
           <input
             name="from"
             required
-            className="mt-1 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+            className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
             placeholder="Скопје"
           />
         </label>
@@ -50,7 +50,7 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
           <input
             name="to"
             required
-            className="mt-1 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+            className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
             placeholder="Битола"
           />
         </label>
@@ -61,7 +61,7 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
           name="phone"
           type="tel"
           required
-          className="mt-1 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+          className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
           placeholder="07X XXX XXX"
         />
       </label>
@@ -71,7 +71,7 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
           name="cargo"
           required
           defaultValue="Палети"
-          className="mt-1 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+          className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
         >
           <option>Палети</option>
           <option>Расути</option>
@@ -82,7 +82,7 @@ export function QuoteForm({ variant = "hero" }: QuoteFormProps) {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-3 block h-12 w-full bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong disabled:opacity-60"
+        className="mt-3 block h-12 w-full rounded-[8px] bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong disabled:opacity-60"
       >
         {submitting ? "Се испраќа…" : "Побарај понуда"}
       </button>

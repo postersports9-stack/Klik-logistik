@@ -40,7 +40,7 @@ export function ContactWidget() {
               target={a.href.startsWith("http") ? "_blank" : undefined}
               rel={a.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className={cn(
-                "flex items-center gap-3 px-4 py-3 text-[14px] font-medium text-white shadow-lg transition-opacity duration-100 hover:opacity-90",
+                "flex items-center gap-3 rounded-[10px] px-4 py-3 text-[14px] font-medium text-white shadow-lg transition-opacity duration-100 hover:opacity-90",
                 a.bg
               )}
             >
@@ -54,7 +54,7 @@ export function ContactWidget() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Затвори" : "Контакт"}
-        className="flex h-14 w-14 items-center justify-center bg-kl-accent text-white shadow-xl transition-colors duration-100 hover:bg-kl-accent-strong"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-kl-accent text-white shadow-xl transition-colors duration-100 hover:bg-kl-accent-strong"
       >
         {open ? <X className="h-6 w-6" /> : <Phone className="h-6 w-6" />}
       </button>

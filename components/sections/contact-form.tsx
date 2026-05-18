@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { BRAND } from "@/lib/constants/brand"
+import { SectionWatermark } from "@/components/ui/section-watermark"
 
 export function ContactForm() {
   const [submitting, setSubmitting] = useState(false)
@@ -19,10 +20,11 @@ export function ContactForm() {
   }
 
   return (
-    <section id="kontakt" className="bg-white">
-      <div className="mx-auto max-w-[1120px] px-4 py-10 sm:px-6 md:px-8 md:py-16">
+    <section id="kontakt" data-theme="light" className="relative bg-white">
+      <div className="relative mx-auto max-w-[1120px] overflow-hidden px-4 py-10 sm:px-6 md:px-8 md:py-16">
+        <SectionWatermark text="Контакт" position="br" />
         <SectionHeading
-          number="06"
+          number="07"
           eyebrow="Контакт"
           title="Побарај понуда."
           lead="Одговараме во 30 минути работно време."
@@ -51,14 +53,14 @@ export function ContactForm() {
                     <textarea
                       name="message"
                       rows={5}
-                      className="mt-1 block w-full border border-kl-border bg-white px-3 py-3 text-[15px] outline-none focus:border-kl-accent"
+                      className="mt-1 block w-full rounded-[8px] border border-kl-border bg-white px-3 py-3 text-[15px] outline-none focus:border-kl-accent"
                     />
                   </label>
                 </div>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="h-12 bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong disabled:opacity-60 sm:col-span-2"
+                  className="h-12 rounded-[8px] bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong disabled:opacity-60 sm:col-span-2"
                 >
                   {submitting ? "Се испраќа…" : "Побарај понуда"}
                 </button>
@@ -131,7 +133,7 @@ function Input({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-1 block h-12 w-full border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+        className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
       />
     </label>
   )
