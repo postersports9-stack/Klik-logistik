@@ -10,7 +10,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <div className="text-[18px] font-medium tracking-tight">Klik Logistik</div>
             <p className="mt-2 max-w-[280px] text-[13px] text-white/70">
-              Вашиот пријател за транспорт. Скопје · Македонија · Европа.
+              Вашиот пријател за транспорт.
             </p>
             <div className="mt-5">
               <AAPlusBadge variant="dark" />
@@ -22,12 +22,11 @@ export function Footer() {
               Навигација
             </div>
             <nav className="mt-4 flex flex-col gap-2 text-[14px]">
-              <a href="/#pokritie" className="text-white/80 hover:text-white">Покритие</a>
-              <a href="/#za-nas" className="text-white/80 hover:text-white">За нас</a>
+              <a href="/#pokritie" className="text-white/80 hover:text-white">Брза проценка</a>
+              <a href="/#zoshto" className="text-white/80 hover:text-white">Зошто</a>
               <a href="/#vozila" className="text-white/80 hover:text-white">Возила</a>
-              <a href="/#zoshto-nas" className="text-white/80 hover:text-white">Зошто нас</a>
+              <Link href="/za-nas" className="text-white/80 hover:text-white">За нас</Link>
               <a href="/#klienti" className="text-white/80 hover:text-white">Клиенти</a>
-              <Link href="/cenovnik" className="text-white/80 hover:text-white">Ценовник</Link>
             </nav>
           </div>
 

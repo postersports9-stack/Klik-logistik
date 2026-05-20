@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useMemo, useRef, useState } from "react"
+import { Info } from "lucide-react"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { PRICELIST, TRUCKS, priceFor, type TruckSize } from "@/lib/constants/pricelist"
 import { CITY_COORDS, MAP_VIEWBOX, MK_OUTLINE_PATH } from "@/lib/constants/city-coords"
@@ -123,11 +124,11 @@ export function CoverageMap() {
   return (
     <section id="pokritie" data-theme="light" className="relative bg-white">
       <div className="relative mx-auto max-w-[1120px] overflow-hidden px-4 py-10 sm:px-6 md:px-8 md:py-16">
-        <SectionWatermark text="Покритие" position="tr" />
+        <SectionWatermark text="Брза проценка" position="tr" />
         <SectionHeading
           number="01"
-          eyebrow="Покритие"
-          title="Возиме до 34 града."
+          eyebrow="Брза проценка"
+          title="Брз калкулатор."
           lead="Изберете град на мапата и тип на камион за инстант цена."
         />
 
@@ -274,9 +275,12 @@ export function CoverageMap() {
                 </svg>
               </div>
             </div>
-            <p className="mt-3 text-[12px] text-kl-muted">
-              Кликни град за да го избереш. Сите релации тргнуваат од Скопје.
-            </p>
+            <div className="mt-4 flex items-center gap-3 rounded-[10px] border border-yellow-400/30 bg-yellow-400/5 p-4 text-[13px] text-kl-ink sm:text-[14px]">
+              <Info className="h-5 w-5 shrink-0 text-yellow-600" />
+              <div>
+                Ова се само ориентациони цени, за точна цена ве молам контактирајте не.
+              </div>
+            </div>
           </div>
 
           <div ref={calcRef} className="col-span-12 scroll-mt-24 lg:col-span-4">
@@ -298,22 +302,44 @@ export function CoverageMap() {
                   </div>
                 </label>
 
-                <label className="block">
+                <div>
                   <span className="block text-[12px] font-medium uppercase tracking-[0.12em] text-kl-muted">
                     Тип на камион
                   </span>
-                  <select
-                    value={truck}
-                    onChange={(e) => setTruck(e.target.value as TruckSize)}
-                    className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-ink"
-                  >
-                    {TRUCKS.map((t) => (
-                      <option key={t.id} value={t.id}>
-                        {t.label} · {t.pallets} палети · {t.tonnage} т
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                  <div className="mt-2 space-y-2">
+                    {TRUCKS.map((t) => {
+                      const isSelected = truck === t.id
+                      return (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => setTruck(t.id as TruckSize)}
+                          className={`flex w-full items-center justify-between rounded-[8px] border p-3.5 text-left transition-all duration-150 ${
+                            isSelected
+                              ? "border-kl-ink bg-kl-ink text-white"
+                              : "border-kl-border bg-white text-kl-ink hover:border-kl-ink"
+                          }`}
+                        >
+                          <div className="flex flex-col">
+                            <span className="text-[14px] font-medium leading-tight">
+                              {t.label}
+                            </span>
+                            <span className={`text-[12px] mt-0.5 ${isSelected ? "text-white/70" : "text-kl-muted"}`}>
+                              Капацитет: {t.pallets} палети
+                            </span>
+                          </div>
+                          <div className="text-right">
+                            <span className={`inline-block rounded-[4px] px-2 py-0.5 text-[11px] font-medium uppercase tracking-wider ${
+                              isSelected ? "bg-white/10 text-white" : "bg-kl-subtle text-kl-ink"
+                            }`}>
+                              {t.tonnage} т
+                            </span>
+                          </div>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
               </div>
 
               <div className="mt-6 rounded-[10px] bg-kl-ink p-5 text-white">
@@ -331,7 +357,16 @@ export function CoverageMap() {
 
               <a
                 href="#kontakt"
-                className="mt-4 block h-12 rounded-[8px] bg-kl-cta text-center text-[14px] font-medium leading-[48px] tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong"
+                onClick={(e) => {
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(
+                      new CustomEvent("fill-route", {
+                        detail: { route: `Скопје → ${selected}` },
+                      })
+                    )
+                  }
+                }}
+                className="mt-4 block h-12 rounded-[8px] bg-kl-cta text-center text-[14px] font-medium leading-[48px] tracking-wide text-kl-cta-foreground transition-all duration-150 hover:bg-kl-cta-strong hover:shadow-[0_4px_16px_rgba(250,204,21,0.25)] active:scale-[0.98]"
               >
                 Резервирај
               </a>

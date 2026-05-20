@@ -13,7 +13,7 @@ export default function NasataRabotaPage() {
       content: (
         <div key="content-2026">
           <p className="text-foreground/80 text-xs md:text-sm font-normal mb-8">
-            Година на проширување. Превезовме над 500 пратки низ Македонија и Европа со флота од модерни возила. Воспоставивме редовни линии кон Германија, Италија и Австрија.
+            Година на проширување. Превезовме над 500 пратки низ цела Македонија со флота од модерни возила. Воспоставивме редовни меѓуградски линии.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -54,7 +54,7 @@ export default function NasataRabotaPage() {
       content: (
         <div key="content-2025">
           <p className="text-foreground/80 text-xs md:text-sm font-normal mb-8">
-            Година на меѓународна експанзија. Отпочнавме соработка со европски партнери и ги прошириме нашите рути до 5 нови земји.
+            Година на национална експанзија. Отпочнавме соработка со реномирани партнери и ги проширивме нашите рути во повеќе градови.
           </p>
           <p className="text-foreground/80 text-xs md:text-sm font-normal mb-8">
             Инвестиравме во нови возила и унапредивме процесите за следење на пратки во реално време.
@@ -165,7 +165,7 @@ export default function NasataRabotaPage() {
           Нашата работа
         </h1>
         <p className="text-muted-foreground text-base md:text-lg max-w-2xl">
-          Од домашни до меѓународни рути — Клик Логистик носи доверба, прецизност и брзина во секоја пратка.
+          Од Скопје до секој град во Македонија — Клик Логистик носи доверба, прецизност и брзина во секоја пратка.
         </p>
       </section>
 

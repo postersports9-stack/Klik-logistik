@@ -6,13 +6,11 @@ import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const navLinks = [
-  { href: "/#pokritie", label: "Покритие" },
-  { href: "/#za-nas", label: "За нас" },
+  { href: "/#pokritie", label: "Брза проценка" },
+  { href: "/#zoshto", label: "Зошто" },
   { href: "/#vozila", label: "Возила" },
-  { href: "/#zoshto-nas", label: "Зошто нас" },
-  { href: "/#brojki", label: "Бројки" },
+  { href: "/za-nas", label: "За нас" },
   { href: "/#klienti", label: "Клиенти" },
-  { href: "/cenovnik", label: "Ценовник" },
   { href: "/#kontakt", label: "Контакт" },
 ]
 
@@ -38,23 +36,15 @@ export function Header() {
       ].join(" ")}
     >
       <div className="mx-auto flex h-full max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-6 md:px-8">
-        <a href="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
+        <a href="/" className="flex min-w-0 items-center">
           <Image
-            src="/brand-logo.png"
+            src="/logo.png"
             alt="Klik Logistik"
-            width={48}
-            height={48}
+            width={200}
+            height={60}
             priority
-            className="h-8 w-8 shrink-0 object-contain sm:h-10 sm:w-10 md:h-12 md:w-12"
+            className="h-8 w-auto shrink-0 object-contain sm:h-10 md:h-12"
           />
-          <div className="flex min-w-0 flex-col leading-tight">
-            <span className="truncate text-[15px] font-medium tracking-tight text-kl-ink sm:text-[18px] md:text-[22px]">
-              Klik Logistik
-            </span>
-            <span className="truncate text-[10px] uppercase tracking-[0.1em] text-kl-muted sm:text-[11px] sm:tracking-[0.18em] md:text-[12px]">
-              Транспорт · Логистика
-            </span>
-          </div>
         </a>
 
         <nav className="hidden items-center gap-4 lg:flex lg:gap-6 xl:gap-7">
@@ -79,9 +69,8 @@ export function Header() {
             <SheetContent side="right" className="w-full bg-white p-0 sm:max-w-md">
               <div className="flex h-full flex-col">
                 <div className="flex h-16 items-center justify-between border-b border-kl-border px-6">
-                  <span className="flex items-center gap-2 text-[18px] font-medium text-kl-ink">
-                    <Image src="/brand-logo.png" alt="Klik Logistik" width={28} height={28} className="h-7 w-7 object-contain" />
-                    Klik Logistik
+                  <span className="flex items-center">
+                    <Image src="/logo.png" alt="Klik Logistik" width={160} height={48} className="h-7 w-auto object-contain" />
                   </span>
                   <button onClick={() => setOpen(false)} aria-label="Затвори мени" className="p-2 text-kl-ink">
                     <X className="h-6 w-6" />

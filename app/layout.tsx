@@ -12,7 +12,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: 'Клик Логистик | Превоз на роба - Скопје',
-  description: 'Klik Logistik DOOEL Skopje — сигурен превоз на роба низ Македонија и Европа.',
+  description: 'Klik Logistik DOOEL Skopje — сигурен превоз на роба низ Македонија.',
   generator: 'v0.app',
   other: {
     google: 'notranslate'

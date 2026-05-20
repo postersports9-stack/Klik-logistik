@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { BRAND } from "@/lib/constants/brand"
 import { SectionWatermark } from "@/components/ui/section-watermark"
@@ -8,6 +8,20 @@ import { SectionWatermark } from "@/components/ui/section-watermark"
 export function ContactForm() {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
+  const [route, setRoute] = useState("")
+
+  useEffect(() => {
+    function handleFillRoute(e: Event) {
+      const customEvent = e as CustomEvent<{ route: string }>
+      if (customEvent.detail && customEvent.detail.route) {
+        setRoute(customEvent.detail.route)
+      }
+    }
+    window.addEventListener("fill-route", handleFillRoute)
+    return () => {
+      window.removeEventListener("fill-route", handleFillRoute)
+    }
+  }, [])
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -43,19 +57,13 @@ export function ContactForm() {
                 <Input name="phone" type="tel" label="Телефон" required />
                 <Input name="email" type="email" label="Email" />
                 <div className="sm:col-span-2">
-                  <Input name="route" label="Релација" placeholder="Скопје → Виена" />
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="block">
-                    <span className="block text-[12px] font-medium uppercase tracking-[0.12em] text-kl-muted">
-                      Порака
-                    </span>
-                    <textarea
-                      name="message"
-                      rows={5}
-                      className="mt-1 block w-full rounded-[8px] border border-kl-border bg-white px-3 py-3 text-[15px] outline-none focus:border-kl-accent"
-                    />
-                  </label>
+                  <Input
+                    name="route"
+                    label="Релација"
+                    placeholder="Скопје → Виена"
+                    value={route}
+                    onChange={(e) => setRoute(e.target.value)}
+                  />
                 </div>
                 <button
                   type="submit"
@@ -116,12 +124,16 @@ function Input({
   type = "text",
   required,
   placeholder,
+  value,
+  onChange,
 }: {
   label: string
   name: string
   type?: string
   required?: boolean
   placeholder?: string
+  value?: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }) {
   return (
     <label className="block">
@@ -133,6 +145,8 @@ function Input({
         type={type}
         required={required}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
       />
     </label>

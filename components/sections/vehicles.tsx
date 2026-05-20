@@ -14,44 +14,36 @@ type Vehicle = {
 
 const vehicles: Vehicle[] = [
   {
-    name: "Combi 3.5t",
-    payload: "1 200 kg",
-    dims: "4.2 × 2.0 × 2.1 m",
-    pallets: "5 EU",
-    trailer: "Затворен",
+    name: "Камион",
+    payload: "3800 кг",
+    dims: "5м × 220см × 220см",
+    pallets: "10",
+    trailer: "Сандак Церада",
     src: SITE_IMAGES.capabilities[0],
   },
   {
-    name: "Camion 7.5t",
-    payload: "3 500 kg",
-    dims: "6.0 × 2.4 × 2.4 m",
-    pallets: "16 EU",
-    trailer: "Тенда",
+    name: "Камион",
+    payload: "3600 кг",
+    dims: "6м × 245см × 220см",
+    pallets: "10",
+    trailer: "Церада",
     src: SITE_IMAGES.capabilities[1],
   },
   {
-    name: "Camion 12t",
-    payload: "7 000 kg",
-    dims: "7.2 × 2.45 × 2.6 m",
-    pallets: "18 EU",
-    trailer: "Тенда / Фриго",
+    name: "Камион",
+    payload: "9500 кг",
+    dims: "7.40м × 240см × 265см",
+    pallets: "18",
+    trailer: "Фургон",
     src: SITE_IMAGES.capabilities[2],
   },
   {
-    name: "Tegnach 24t",
-    payload: "24 000 kg",
-    dims: "13.6 × 2.48 × 2.7 m",
-    pallets: "33 EU",
-    trailer: "Цералин / Фриго",
+    name: "Камион",
+    payload: "10000 кг",
+    dims: "7.60м × 245см × 235см",
+    pallets: "18",
+    trailer: "Церада ролетна",
     src: SITE_IMAGES.capabilities[3],
-  },
-  {
-    name: "Hladnjača",
-    payload: "6 000 kg",
-    dims: "7.0 × 2.4 × 2.5 m",
-    pallets: "16 EU",
-    trailer: "Фриго −25 °C",
-    src: SITE_IMAGES.capabilities[4],
   },
 ]
 
@@ -70,7 +62,7 @@ export function Vehicles() {
         <ul className="mt-8">
           {vehicles.map((v, i) => (
             <li
-              key={v.name}
+              key={`${v.name}-${i}`}
               className="grid grid-cols-12 gap-6 border-b border-kl-border py-6 md:gap-10"
             >
               <div className="col-span-12 md:col-span-4">

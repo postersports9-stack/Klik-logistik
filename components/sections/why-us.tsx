@@ -1,12 +1,12 @@
-import { SectionHeading } from "@/components/sections/section-heading"
 import { AAPlusBadge } from "@/components/ui/aa-plus-badge"
 import { SectionWatermark } from "@/components/ui/section-watermark"
+import { GrainOverlay } from "@/components/ui/grain-overlay"
 
 const reasons = [
   {
     n: "01",
-    title: "Навремена организација",
-    body: "Секој транспорт го организираме брзо, одговорно и со максимална посветеност.",
+    title: "Збирен транспорт",
+    body: "Организираме и збирен транспорт за помали количини роба, со флексибилна неделна организација и поекономична цена.",
   },
   {
     n: "02",
@@ -20,8 +20,8 @@ const reasons = [
   },
   {
     n: "04",
-    title: "Збирен транспорт",
-    body: "Организираме и збирен транспорт за помали количини роба, со флексибилна неделна организација и поекономична цена.",
+    title: "Навремена организација",
+    body: "Секој транспорт го организираме брзо, одговорно и со максимална посветеност.",
   },
   {
     n: "05",
@@ -38,30 +38,35 @@ const reasons = [
 
 export function WhyUs() {
   return (
-    <section id="zoshto-nas" data-theme="light" className="relative bg-white">
+    <section id="zoshto" data-theme="dark" className="relative overflow-hidden bg-kl-ink text-white">
+      <GrainOverlay />
       <div className="relative mx-auto max-w-[1120px] overflow-hidden px-4 py-10 sm:px-6 md:px-8 md:py-16">
-        <SectionWatermark text="Зошто нас" position="bl" />
-        <SectionHeading
-          number="04"
-          eyebrow="Зошто нас"
-          title="Зошто да нè изберете за транспортен партнер."
-        />
+        <SectionWatermark text="Зошто" position="bl" tone="dark" />
 
-        <ul className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 md:gap-x-10 md:gap-y-10 lg:grid-cols-3">
+        <div className="border-t border-white/15 pt-6">
+          <div className="text-[11px] font-medium uppercase tracking-[0.1em] text-white/60 sm:text-[12px] sm:tracking-[0.18em]">
+            <span className="border-b border-kl-accent pb-0.5 text-white">02</span> — Зошто
+          </div>
+          <h2 className="mt-6 text-[32px] leading-[40px] font-medium tracking-[-0.015em] md:text-[40px] md:leading-[48px]">
+            Зошто да нè изберете за транспортен партнер.
+          </h2>
+        </div>
+
+        <ul className="mt-12 grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 md:gap-x-10 lg:grid-cols-3">
           {reasons.map((r) => (
-            <li key={r.n} className="min-w-0 border-t border-kl-border pt-6">
-              <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+            <li key={r.n} className="min-w-0 border-t border-white/15 pt-6">
+              <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/60">
                 {r.n}
               </div>
-              <h3 className="mt-3 text-[20px] font-medium leading-[26px] text-kl-ink sm:text-[22px] sm:leading-[28px]">
+              <h3 className="mt-3 text-[20px] font-medium leading-[26px] text-white sm:text-[22px] sm:leading-[28px]">
                 {r.title}
               </h3>
-              <p className="mt-2 text-[15px] leading-[24px] text-kl-muted sm:text-[16px] sm:leading-[26px]">
+              <p className="mt-2 text-[15px] leading-[24px] text-white/70 sm:text-[16px] sm:leading-[26px]">
                 {r.body}
               </p>
               {r.badge && (
                 <div className="mt-4">
-                  <AAPlusBadge />
+                  <AAPlusBadge variant="dark" />
                 </div>
               )}
             </li>
