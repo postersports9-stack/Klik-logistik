@@ -44,8 +44,8 @@ export function ContactForm() {
           lead="Одговараме во 30 минути работно време."
         />
 
-        <div className="mt-8 grid grid-cols-12 gap-10">
-          <div className="col-span-12 md:col-span-7">
+        <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="md:col-span-7">
             {done ? (
               <p className="text-[16px] text-kl-ink">
                 Благодариме. Ќе ве контактираме во рок од 30 минути.
@@ -76,7 +76,7 @@ export function ContactForm() {
             )}
           </div>
 
-          <aside className="col-span-12 md:col-span-5">
+          <aside className="md:col-span-5">
             <dl className="space-y-6 text-[14px]">
               <div>
                 <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">Телефон</dt>

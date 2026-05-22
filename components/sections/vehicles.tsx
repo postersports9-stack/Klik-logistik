@@ -63,9 +63,9 @@ export function Vehicles() {
           {vehicles.map((v, i) => (
             <li
               key={`${v.name}-${i}`}
-              className="grid grid-cols-12 gap-6 border-b border-kl-border py-6 md:gap-10"
+              className="grid grid-cols-1 gap-8 items-center border-b border-kl-border py-6 md:grid-cols-12 lg:gap-16"
             >
-              <div className="col-span-12 md:col-span-4">
+              <div className="md:col-span-4">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-kl-subtle">
                   <Image
                     src={v.src}
@@ -77,7 +77,7 @@ export function Vehicles() {
                   />
                 </div>
               </div>
-              <div className="col-span-12 md:col-span-8">
+              <div className="md:col-span-8">
                 <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
                   {String(i + 1).padStart(2, "0")}
                 </div>

@@ -24,7 +24,7 @@ export default function ZaNasPage() {
               Компанија
             </span>
             <h1 className="mt-3 text-[36px] font-medium leading-tight tracking-tight text-kl-ink sm:text-[48px]">
-              Логистика што се држи за збор.
+              За нас
             </h1>
             
             <div className="mt-10 space-y-6">

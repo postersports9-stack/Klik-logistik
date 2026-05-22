@@ -18,16 +18,15 @@ export function About() {
             За нас
           </h2>
         </div>
-        <div className="mt-8 grid grid-cols-12 gap-6 items-center md:gap-10">
-          <div className="col-span-12 md:col-span-8">
+        <div className="mt-8 grid grid-cols-1 gap-6 items-center md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-8">
             <p 
               className="max-w-[680px] text-[16px] leading-[26px] text-white md:text-[17px] md:leading-[28px]"
-              style={{ textShadow: '0 0 15px rgba(250, 204, 21, 0.8)' }}
             >
               Klik Logistik е логистичка компанија специјализирана за сигурен, навремен и ефикасен транспорт во Македонија. Градиме раст преку стабилна услуга и долгорочна соработка со клиенти од различни индустрии.
             </p>
           </div>
-          <div className="col-span-12 md:col-span-4 flex md:justify-end">
+          <div className="flex md:col-span-4 md:justify-end">
             <Link
               href="/za-nas"
               className="inline-flex h-12 items-center justify-center rounded-[8px] bg-kl-cta px-6 text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-all duration-100 hover:bg-kl-cta-strong"

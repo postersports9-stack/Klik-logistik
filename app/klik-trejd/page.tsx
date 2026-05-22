@@ -18,7 +18,7 @@ export default function KlikTrejdPage() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 items-center">
             
             {/* Left Column: Image with modern rounded corners and shadow */}
-            <div className="col-span-12 lg:col-span-6">
+            <div className="lg:col-span-6">
               <div className="group relative overflow-hidden rounded-[16px] border border-kl-border bg-kl-subtle shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
@@ -33,7 +33,7 @@ export default function KlikTrejdPage() {
             </div>
 
             {/* Right Column: Title, Description, and CTA */}
-            <div className="col-span-12 lg:col-span-6">
+            <div className="lg:col-span-6">
               <div>
                 <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-kl-muted">
                   Услуги

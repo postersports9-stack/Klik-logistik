@@ -92,8 +92,8 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
   }
 
   return (
-    <div className="grid grid-cols-12 gap-6 md:gap-10">
-      <div className="col-span-12 min-w-0 md:col-span-7">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-10">
+      <div className="min-w-0 md:col-span-7">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <Field label="Од">
             <input value="Скопје" readOnly className={inputCls} />
@@ -110,7 +110,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
         </div>
       </div>
 
-      <div className="col-span-12 min-w-0 md:col-span-5">
+      <div className="min-w-0 md:col-span-5">
         <div className="bg-kl-subtle p-6 sm:p-8">
           <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-kl-muted sm:text-[12px] sm:tracking-[0.18em]">
             Цена

@@ -132,8 +132,8 @@ export function CoverageMap() {
           lead="Изберете град на мапата и тип на камион за инстант цена."
         />
 
-        <div className="mt-8 grid grid-cols-12 gap-6 lg:gap-8">
-          <div ref={ref} className="col-span-12 lg:col-span-8">
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+          <div ref={ref} className="lg:col-span-8">
             <div className="overflow-hidden rounded-[12px] border border-kl-border bg-kl-subtle">
               <div className="relative w-full" style={{ aspectRatio: `${VIEW_W} / ${VIEW_H}` }}>
                 <svg
@@ -283,7 +283,7 @@ export function CoverageMap() {
             </div>
           </div>
 
-          <div ref={calcRef} className="col-span-12 scroll-mt-24 lg:col-span-4">
+          <div ref={calcRef} className="scroll-mt-24 lg:col-span-4">
             <div className="rounded-[12px] border border-kl-border bg-white p-5 sm:p-6">
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-kl-muted">
                 Калкулатор
