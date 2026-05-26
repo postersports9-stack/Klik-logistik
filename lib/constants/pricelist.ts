@@ -5,12 +5,13 @@ export type TruckSpec = {
   label: string
   pallets: number
   tonnage: number
+  volume: string
 }
 
 export const TRUCKS: TruckSpec[] = [
-  { id: "small", label: "Мал", pallets: 10, tonnage: 3.5 },
-  { id: "medium", label: "Среден", pallets: 15, tonnage: 3.5 },
-  { id: "large", label: "Голем", pallets: 18, tonnage: 10 },
+  { id: "small", label: "Мал", pallets: 10, tonnage: 3.5, volume: "25 м³" },
+  { id: "medium", label: "Среден", pallets: 15, tonnage: 3.5, volume: "33 м³" },
+  { id: "large", label: "Голем", pallets: 18, tonnage: 10, volume: "48 м³" },
 ]
 
 export type CityPrice = {

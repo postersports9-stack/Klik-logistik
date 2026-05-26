@@ -325,14 +325,7 @@ export function CoverageMap() {
                               {t.label}
                             </span>
                             <span className={`text-[12px] mt-0.5 ${isSelected ? "text-white/70" : "text-kl-muted"}`}>
-                              Капацитет: {t.pallets} палети
-                            </span>
-                          </div>
-                          <div className="text-right">
-                            <span className={`inline-block rounded-[4px] px-2 py-0.5 text-[11px] font-medium uppercase tracking-wider ${
-                              isSelected ? "bg-white/10 text-white" : "bg-kl-subtle text-kl-ink"
-                            }`}>
-                              {t.tonnage} т
+                              Капацитет: {t.volume}
                             </span>
                           </div>
                         </button>
@@ -351,7 +344,7 @@ export function CoverageMap() {
                   <span className="ml-2 text-[16px] font-normal text-white/70">ден.</span>
                 </div>
                 <div className="mt-2 text-[12px] text-white/60">
-                  {truckSpec.label} · {truckSpec.pallets} палети · {truckSpec.tonnage} т
+                  {truckSpec.label} · {truckSpec.volume}
                 </div>
               </div>
 

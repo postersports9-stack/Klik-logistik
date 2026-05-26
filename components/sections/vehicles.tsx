@@ -10,40 +10,45 @@ type Vehicle = {
   pallets: string
   trailer: string
   src: string
+  capacity: string
 }
 
 const vehicles: Vehicle[] = [
   {
-    name: "Камион",
+    name: "Тип на возило 1",
     payload: "3800 кг",
     dims: "5м × 220см × 220см",
     pallets: "10",
     trailer: "Сандак Церада",
-    src: SITE_IMAGES.capabilities[0],
+    src: "/images/truck1.webp",
+    capacity: "Мал - 25 м³",
   },
   {
-    name: "Камион",
+    name: "Тип на возило 2",
     payload: "3600 кг",
     dims: "6м × 245см × 220см",
     pallets: "10",
     trailer: "Церада",
-    src: SITE_IMAGES.capabilities[1],
+    src: "/images/truck2.webp",
+    capacity: "Среден - 33 м³",
   },
   {
-    name: "Камион",
+    name: "Тип на возило 3",
     payload: "9500 кг",
     dims: "7.40м × 240см × 265см",
     pallets: "18",
     trailer: "Фургон",
-    src: SITE_IMAGES.capabilities[2],
+    src: "/images/truck3.webp",
+    capacity: "Голем - 48 м³",
   },
   {
-    name: "Камион",
+    name: "Тип на возило 4",
     payload: "10000 кг",
     dims: "7.60м × 245см × 235см",
     pallets: "18",
     trailer: "Церада ролетна",
-    src: SITE_IMAGES.capabilities[3],
+    src: "/images/truck4.webp",
+    capacity: "Голем - 48 м³",
   },
 ]
 
@@ -68,12 +73,12 @@ export function Vehicles() {
               <div className="md:col-span-4">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-kl-subtle">
                   <Image
-                    src={v.src}
-                    alt={v.name}
-                    fill
-                    quality={85}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
+                     src={v.src}
+                     alt={v.name}
+                     fill
+                     quality={85}
+                     sizes="(max-width: 768px) 100vw, 33vw"
+                     className="object-cover"
                   />
                 </div>
               </div>
@@ -83,6 +88,10 @@ export function Vehicles() {
                 </div>
                 <h3 className="mt-2 text-[24px] font-medium leading-[32px] text-kl-ink">{v.name}</h3>
                 <dl className="mt-6 grid grid-cols-1 gap-x-10 gap-y-3 text-[14px] sm:grid-cols-2">
+                  <div className="flex flex-wrap justify-between gap-x-3 border-b border-kl-border pb-2">
+                    <dt className="text-kl-muted">Капацитет</dt>
+                    <dd className="text-kl-ink font-semibold">{v.capacity}</dd>
+                  </div>
                   <div className="flex flex-wrap justify-between gap-x-3 border-b border-kl-border pb-2">
                     <dt className="text-kl-muted">Носивост</dt>
                     <dd className="text-kl-ink">{v.payload}</dd>

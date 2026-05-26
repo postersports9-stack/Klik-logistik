@@ -55,7 +55,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
           </span>
         </div>
         <p className="mt-1 text-[12px] text-kl-muted">
-          {truckSpec.label} · {truckSpec.pallets} палети · {truckSpec.tonnage} т
+          {truckSpec.label} · {truckSpec.volume}
         </p>
 
         {reserved ? (
@@ -130,7 +130,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             <div className="flex flex-wrap justify-between gap-x-3">
               <dt className="text-kl-muted">Капацитет</dt>
               <dd className="tabular-nums text-kl-ink">
-                {truckSpec.pallets} палети · {truckSpec.tonnage} т
+                {truckSpec.volume}
               </dd>
             </div>
           </dl>
@@ -329,7 +329,7 @@ function TruckSelect({
     >
       {TRUCKS.map((t) => (
         <option key={t.id} value={t.id}>
-          {t.label} · {t.pallets} палети · {t.tonnage} т
+          {t.label} · {t.volume}
         </option>
       ))}
     </select>
