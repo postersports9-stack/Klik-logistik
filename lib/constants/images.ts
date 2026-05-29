@@ -1,3 +1,4 @@
+const HERO_COVER = "/images/hero-cover.webp";
 const T1 = "/images/pallet-collection-service.avif";
 const T2 = "/images/transport-2.avif";
 const T3 = "/images/transport-3.avif";
@@ -7,7 +8,7 @@ const T5 = "/images/transport-5.avif";
 export const SITE_IMAGES = {
   hero: [
     {
-      src: T1,
+      src: HERO_COVER,
       title: "Превоз на роба",
       label: "",
       sub: "Брзо и безбедно",

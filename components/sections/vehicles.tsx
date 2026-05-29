@@ -27,7 +27,7 @@ const vehicles: Vehicle[] = [
     name: "Тип на возило 2",
     payload: "3600 кг",
     dims: "6м × 245см × 220см",
-    pallets: "10",
+    pallets: "15",
     trailer: "Церада",
     src: "/images/truck2.webp",
     capacity: "Среден - 33 м³",
