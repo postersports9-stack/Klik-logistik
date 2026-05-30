@@ -4,7 +4,7 @@ import { SectionWatermark } from "@/components/ui/section-watermark"
 
 const lead = {
   quote:
-    "Klik Logistik ни ги покрива сите релации низ Балканот. Точност на испорака близу 100% и диспечер кој одговара во рок од минути — реткост во бранша.",
+    "Klik Logistik ни ги покрива сите релации низ Македонија. Точност на испорака близу 100% и диспечер кој одговара во рок од минути, реткост во бранша.",
   name: "Марија Стојанова",
   company: "Generic Trade DOO",
 }
@@ -18,7 +18,7 @@ const others = [
   },
   {
     quote:
-      "Ги префрлија нашите ADR испораки кон ЕУ за половина од времето на претходниот превозник.",
+      "Ги префрлија нашите ADR испораки низ Македонија за половина од времето на претходниот превозник.",
     name: "Александар Тасев",
     company: "Tasevski Group",
   },
@@ -47,7 +47,7 @@ export function Testimonials() {
             "{lead.quote}"
           </blockquote>
           <div className="mt-6 border-t border-kl-border pt-4 text-[14px] text-kl-muted">
-            {lead.name} — {lead.company}
+            {lead.name}, {lead.company}
           </div>
         </figure>
 
@@ -59,7 +59,7 @@ export function Testimonials() {
                 "{t.quote}"
               </blockquote>
               <div className="mt-4 border-t border-kl-border pt-3 text-[14px] text-kl-muted">
-                {t.name} — {t.company}
+                {t.name}, {t.company}
               </div>
             </figure>
           ))}
