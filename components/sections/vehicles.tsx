@@ -21,7 +21,7 @@ const vehicles: Vehicle[] = [
     pallets: "10",
     trailer: "Сандак Церада",
     src: "/images/truck1.webp",
-    capacity: "Мал - 25 м³",
+    capacity: "25 м³",
   },
   {
     name: "Тип на возило 2",
@@ -30,7 +30,7 @@ const vehicles: Vehicle[] = [
     pallets: "15",
     trailer: "Церада",
     src: "/images/truck2.webp",
-    capacity: "Среден - 33 м³",
+    capacity: "33 м³",
   },
   {
     name: "Тип на возило 3",
@@ -39,7 +39,7 @@ const vehicles: Vehicle[] = [
     pallets: "18",
     trailer: "Фургон",
     src: "/images/truck3.webp",
-    capacity: "Голем - 48 м³",
+    capacity: "48 м³",
   },
   {
     name: "Тип на возило 4",
@@ -48,7 +48,7 @@ const vehicles: Vehicle[] = [
     pallets: "18",
     trailer: "Церада ролетна",
     src: "/images/truck4.webp",
-    capacity: "Голем - 48 м³",
+    capacity: "48 м³",
   },
 ]
 

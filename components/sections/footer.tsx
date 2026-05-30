@@ -59,7 +59,6 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/15 pt-6 text-[12px] text-white/60 md:flex-row md:items-center">
           <div>© Klik Logistik {new Date().getFullYear()} · Сите права задржани</div>
-          <a href="#" className="hover:text-white">Политика на приватност</a>
         </div>
       </div>
     </footer>
