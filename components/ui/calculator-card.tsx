@@ -55,7 +55,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
           </span>
         </div>
         <p className="mt-1 text-[12px] text-kl-muted">
-          {truckSpec.label} · {truckSpec.volume}
+          {truckSpec.volume}
         </p>
 
         {reserved ? (
@@ -122,10 +122,6 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             <div className="flex flex-wrap justify-between gap-x-3">
               <dt className="text-kl-muted">Релација</dt>
               <dd className="tabular-nums text-kl-ink">Скопје → {city}</dd>
-            </div>
-            <div className="flex flex-wrap justify-between gap-x-3">
-              <dt className="text-kl-muted">Камион</dt>
-              <dd className="text-kl-ink">{truckSpec.label}</dd>
             </div>
             <div className="flex flex-wrap justify-between gap-x-3">
               <dt className="text-kl-muted">Капацитет</dt>
@@ -322,16 +318,26 @@ function TruckSelect({
   onChange: (v: TruckSize) => void
 }) {
   return (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value as TruckSize)}
-      className={inputCls}
-    >
+    <div className="grid grid-cols-3 gap-2">
       {TRUCKS.map((t) => (
-        <option key={t.id} value={t.id}>
-          {t.label} · {t.volume}
-        </option>
+        <button
+          key={t.id}
+          type="button"
+          onClick={() => onChange(t.id)}
+          className={`flex flex-col items-center justify-center rounded-[8px] border px-2 py-3 text-center transition-colors duration-100 ${
+            value === t.id
+              ? "border-kl-ink bg-kl-ink text-white"
+              : "border-kl-border bg-white text-kl-ink hover:border-kl-ink"
+          }`}
+        >
+          <span className="text-[10px] font-medium uppercase tracking-[0.1em] opacity-70">
+            Капацитет
+          </span>
+          <span className="mt-0.5 text-[14px] font-medium tabular-nums">
+            {t.volume}
+          </span>
+        </button>
       ))}
-    </select>
+    </div>
   )
 }

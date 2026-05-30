@@ -321,11 +321,11 @@ export function CoverageMap() {
                           }`}
                         >
                           <div className="flex flex-col">
-                            <span className="text-[14px] font-medium leading-tight">
-                              {t.label}
+                            <span className={`text-[11px] font-medium uppercase tracking-[0.1em] ${isSelected ? "text-white/70" : "text-kl-muted"}`}>
+                              Капацитет
                             </span>
-                            <span className={`text-[12px] mt-0.5 ${isSelected ? "text-white/70" : "text-kl-muted"}`}>
-                              Капацитет: {t.volume}
+                            <span className="mt-0.5 text-[15px] font-medium tabular-nums leading-tight">
+                              {t.volume}
                             </span>
                           </div>
                         </button>
@@ -344,7 +344,7 @@ export function CoverageMap() {
                   <span className="ml-2 text-[16px] font-normal text-white/70">ден.</span>
                 </div>
                 <div className="mt-2 text-[12px] text-white/60">
-                  {truckSpec.label} · {truckSpec.volume}
+                  Капацитет: {truckSpec.volume}
                 </div>
               </div>
 
