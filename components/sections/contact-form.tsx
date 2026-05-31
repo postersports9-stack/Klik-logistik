@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import type { ChangeEvent, FormEvent } from "react"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { BRAND } from "@/lib/constants/brand"
 import { SectionWatermark } from "@/components/ui/section-watermark"
@@ -13,11 +14,20 @@ export function ContactForm() {
   useEffect(() => {
     function handleFillRoute(e: Event) {
       const customEvent = e as CustomEvent<{ route: string }>
+
       if (customEvent.detail && customEvent.detail.route) {
         setRoute(customEvent.detail.route)
       }
     }
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+    window.addEventListener("fill-route", handleFillRoute)
+
+    return () => {
+      window.removeEventListener("fill-route", handleFillRoute)
+    }
+  }, [])
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSubmitting(true)
 
@@ -51,26 +61,11 @@ export function ContactForm() {
     }
   }
 
-    window.addEventListener("fill-route", handleFillRoute)
-    return () => {
-      window.removeEventListener("fill-route", handleFillRoute)
-    }
-  }, [])
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitting(true)
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries())
-    console.info("[ContactForm]", data)
-    await new Promise((r) => setTimeout(r, 300))
-    setSubmitting(false)
-    setDone(true)
-  }
-
   return (
     <section id="kontakt" data-theme="light" className="relative bg-white">
       <div className="relative mx-auto max-w-[1120px] overflow-hidden px-4 py-10 sm:px-6 md:px-8 md:py-16">
         <SectionWatermark text="Контакт" position="br" />
+
         <SectionHeading
           number="07"
           eyebrow="Контакт"
@@ -90,6 +85,7 @@ export function ContactForm() {
                 <Input name="company" label="Компанија" />
                 <Input name="phone" type="tel" label="Телефон" required />
                 <Input name="email" type="email" label="Email" />
+
                 <div className="sm:col-span-2">
                   <Input
                     name="route"
@@ -99,6 +95,15 @@ export function ContactForm() {
                     onChange={(e) => setRoute(e.target.value)}
                   />
                 </div>
+
+                <div className="sm:col-span-2">
+                  <Textarea
+                    name="message"
+                    label="Порака"
+                    placeholder="Напишете краток опис на пратката, дестинација или прашање."
+                  />
+                </div>
+
                 <button
                   type="submit"
                   disabled={submitting}
@@ -113,25 +118,36 @@ export function ContactForm() {
           <aside className="md:col-span-5">
             <dl className="space-y-6 text-[14px]">
               <div>
-                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">Телефон</dt>
+                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+                  Телефон
+                </dt>
                 <dd className="mt-1">
                   <a href={BRAND.phoneHref} className="text-[22px] font-medium text-kl-ink">
                     {BRAND.phone}
                   </a>
                 </dd>
               </div>
+
               <div>
-                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">Email</dt>
+                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+                  Email
+                </dt>
                 <dd className="mt-1 text-kl-ink">
                   <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
                 </dd>
               </div>
+
               <div>
-                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">Адреса</dt>
+                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+                  Адреса
+                </dt>
                 <dd className="mt-1 text-kl-ink">{BRAND.address}</dd>
               </div>
+
               <div>
-                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">Работно време</dt>
+                <dt className="text-[12px] font-medium uppercase tracking-[0.18em] text-kl-muted">
+                  Работно време
+                </dt>
                 <dd className="mt-1 text-kl-ink">Пон–Саб 08:00–20:00</dd>
               </div>
             </dl>
@@ -167,7 +183,7 @@ function Input({
   required?: boolean
   placeholder?: string
   value?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }) {
   return (
     <label className="block">
@@ -181,7 +197,34 @@ function Input({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="mt-1 block h-12 w-full rounded-[8px] border border-kl-border bg-white px-3 text-[15px] outline-none focus:border-kl-accent"
+        className="mt-2 h-12 w-full border-b border-kl-line bg-transparent text-[16px] text-kl-ink outline-none transition-colors duration-100 placeholder:text-kl-muted focus:border-kl-cta"
+      />
+    </label>
+  )
+}
+
+function Textarea({
+  label,
+  name,
+  required,
+  placeholder,
+}: {
+  label: string
+  name: string
+  required?: boolean
+  placeholder?: string
+}) {
+  return (
+    <label className="block">
+      <span className="block text-[12px] font-medium uppercase tracking-[0.12em] text-kl-muted">
+        {label}
+      </span>
+      <textarea
+        name={name}
+        required={required}
+        placeholder={placeholder}
+        rows={4}
+        className="mt-2 w-full resize-none border-b border-kl-line bg-transparent py-3 text-[16px] text-kl-ink outline-none transition-colors duration-100 placeholder:text-kl-muted focus:border-kl-cta"
       />
     </label>
   )
