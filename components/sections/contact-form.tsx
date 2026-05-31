@@ -17,6 +17,40 @@ export function ContactForm() {
         setRoute(customEvent.detail.route)
       }
     }
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSubmitting(true)
+
+    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(form).entries())
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result.ok) {
+        alert(result.message || "Настана грешка при испраќање.")
+        return
+      }
+
+      setDone(true)
+      form.reset()
+      setRoute("")
+    } catch (error) {
+      console.error("[ContactForm]", error)
+      alert("Настана грешка при испраќање. Обидете се повторно.")
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
     window.addEventListener("fill-route", handleFillRoute)
     return () => {
       window.removeEventListener("fill-route", handleFillRoute)
