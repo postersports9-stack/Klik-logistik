@@ -7,5 +7,6 @@ export const BRAND = {
   whatsappPhone: "070233465",
   address: "Скопје, Македонија",
   niche: "Превоз на роба",
-  email: "info@kliklogistik.mk",
+  email: "info@klikgroup.mk",
+  url: "https://klikgroup.mk",
 } as const;
