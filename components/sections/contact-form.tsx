@@ -67,7 +67,7 @@ export function ContactForm() {
         <SectionWatermark text="Контакт" position="br" />
 
         <SectionHeading
-          number="07"
+          number="05"
           eyebrow="Контакт"
           title="Побарај понуда."
           lead="Одговараме во 30 минути работно време."

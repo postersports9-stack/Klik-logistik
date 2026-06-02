@@ -26,7 +26,6 @@ export function Footer() {
               <a href="/#zoshto" className="text-white/80 hover:text-white">Зошто</a>
               <a href="/#vozila" className="text-white/80 hover:text-white">Возила</a>
               <Link href="/za-nas" className="text-white/80 hover:text-white">За нас</Link>
-              <a href="/#klienti" className="text-white/80 hover:text-white">Клиенти</a>
             </nav>
           </div>
 

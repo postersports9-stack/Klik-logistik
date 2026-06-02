@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/#zoshto", label: "Зошто" },
   { href: "/#vozila", label: "Возила" },
   { href: "/za-nas", label: "За нас" },
-  { href: "/#klienti", label: "Клиенти" },
   { href: "/#kontakt", label: "Контакт" },
 ]
 
