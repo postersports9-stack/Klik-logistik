@@ -48,7 +48,7 @@ Unique title + description per page, brand-led, keywords natural (no stuffing):
 ### 3. Structured data — JSON-LD (invisible; primary brand lever)
 Reusable server component `components/seo/json-ld.tsx` rendering `<script type="application/ld+json">`.
 - **Organization** (sitewide, layout): `name: "Klik Logistik"`, `alternateName: ["Klik Group","Клик Логистик","Клик Груп","Klik Logistik DOOEL Skopje"]`, `url`, `logo`, `email`, `telephone`, `sameAs: []`. Teaches Google brand spellings in both scripts → serves primary goal.
-- **LocalBusiness** (home): full NAP with `address` (PostalAddress: street `1 бр.38`, locality Кучевиште / Чучер-Сандево, region Скопје, country MK), `areaServed: "Северна Македонија"`, `geo`, `telephone`, `email`, `openingHours` (placeholder if unknown).
+- **LocalBusiness** (home): full NAP with `address` (PostalAddress: street `1 бр.38`, locality Кучевиште / Чучер-Сандево, region Скопје, country MK), `areaServed: "Северна Македонија"`, `geo`, `telephone`, `email`, `openingHours: "Mo-Su 09:00-17:00"`.
 - **BreadcrumbList** on subpages.
 - **Service** schema on `/klik-trejd` (откуп/продажба на палети) → paleti transport / transport na paleti.
 
