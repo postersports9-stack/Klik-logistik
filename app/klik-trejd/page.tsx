@@ -3,15 +3,33 @@ import { Footer } from "@/components/sections/footer"
 import Image from "next/image"
 import { Phone } from "lucide-react"
 import { BRAND } from "@/lib/constants/brand"
+import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata = {
-  title: "Клик Трејд | Откуп и продажба на палети",
-  description: "Клик Трејд — Откуп и продажба на дрвени палети (120x80) и индустриски палети на територијата на цела Македонија.",
+  title: "Клик Трејд (Klik Trejd) — Откуп и продажба на палети",
+  description: "Клик Трејд — откуп и продажба на дрвени (120x80) и индустриски палети низ цела Македонија. Транспорт на палети.",
+  alternates: { canonical: "/klik-trejd" },
 }
 
 export default function KlikTrejdPage() {
   return (
     <main className="flex min-h-screen flex-col bg-kl-subtle">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Откуп и продажба на палети",
+        provider: { "@type": "Organization", name: "Klik Logistik", url: "https://klikgroup.mk" },
+        areaServed: "Северна Македонија",
+        name: "Клик Трејд — палети",
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Дома", item: "https://klikgroup.mk/" },
+          { "@type": "ListItem", position: 2, name: "Клик Трејд", item: "https://klikgroup.mk/klik-trejd" },
+        ],
+      }} />
       <Header />
       <section className="flex-1 bg-white">
         <div className="mx-auto max-w-[1120px] px-4 py-16 sm:px-6 md:px-8 md:py-24">

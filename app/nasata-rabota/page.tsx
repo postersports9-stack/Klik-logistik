@@ -5,6 +5,13 @@ import { Timeline } from "@/components/ui/timeline";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import { SITE_IMAGES } from "@/lib/constants/images";
+import { JsonLd } from "@/components/seo/json-ld";
+
+export const metadata = {
+  title: "Нашата работа — транспорт МК",
+  description: "Портфолио и историја на Клик Логистик — транспорт и превоз на роба и палети низ цела Македонија.",
+  alternates: { canonical: "/nasata-rabota" },
+};
 
 export default function NasataRabotaPage() {
   const data = [
@@ -150,6 +157,14 @@ export default function NasataRabotaPage() {
 
   return (
     <main className="relative min-h-screen bg-background">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Дома", item: "https://klikgroup.mk/" },
+          { "@type": "ListItem", position: 2, name: "Нашата работа", item: "https://klikgroup.mk/nasata-rabota" },
+        ],
+      }} />
       <Header />
 
       {/* Hero Section */}

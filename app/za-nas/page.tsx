@@ -1,9 +1,11 @@
 import { Header } from "@/components/sections/header"
 import { Footer } from "@/components/sections/footer"
+import { JsonLd } from "@/components/seo/json-ld"
 
 export const metadata = {
-  title: "За нас | Клик Логистик",
-  description: "Дознајте повеќе за Клик Логистик — вашата логистичка компанија за сигурен, навремен и ефикасен транспорт.",
+  title: "За нас — фирма за транспорт во Скопје",
+  description: "Дознајте за Клик Логистик (Klik Group) — фирма за транспорт и логистика за сигурен превоз на роба во Скопје и низ Македонија.",
+  alternates: { canonical: "/za-nas" },
 }
 
 const paragraphs = [
@@ -16,6 +18,14 @@ const paragraphs = [
 export default function ZaNasPage() {
   return (
     <main className="flex min-h-screen flex-col bg-kl-subtle">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Дома", item: "https://klikgroup.mk/" },
+          { "@type": "ListItem", position: 2, name: "За нас", item: "https://klikgroup.mk/za-nas" },
+        ],
+      }} />
       <Header />
       <section className="flex-1 bg-white">
         <div className="mx-auto max-w-[1120px] px-4 py-16 sm:px-6 md:px-8 md:py-24">
