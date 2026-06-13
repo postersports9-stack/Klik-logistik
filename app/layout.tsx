@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     'Клик Логистик (Klik Group) — фирма за транспорт и сигурен превоз на роба и палети во Скопје и низ цела Македонија.',
   applicationName: 'Клик Логистик',
   generator: 'v0.app',
-  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'mk_MK',
@@ -53,7 +52,7 @@ export const viewport: Viewport = {
 import { Suspense } from 'react'
 import { HashScroll } from '@/components/ui/hash-scroll'
 import { ScrollHighway } from '@/components/ui/scroll-highway'
-import { JsonLd, organizationSchema } from '@/components/seo/json-ld'
+import { JsonLd, organizationSchema, serviceSchema } from '@/components/seo/json-ld'
 
 export default function RootLayout({
   children,
@@ -64,6 +63,7 @@ export default function RootLayout({
     <html lang="mk" className={roboto.variable}>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <JsonLd data={organizationSchema} />
+        <JsonLd data={serviceSchema} />
         <Suspense fallback={null}>
           <HashScroll />
         </Suspense>

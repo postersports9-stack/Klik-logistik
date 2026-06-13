@@ -9,6 +9,10 @@ import { Footer } from "@/components/sections/footer"
 import { ContactWidget } from "@/components/ui/contact-widget"
 import { JsonLd, localBusinessSchema } from "@/components/seo/json-ld"
 
+export const metadata = {
+  alternates: { canonical: "/" }
+}
+
 export default function HomePage() {
   return (
     <main>

@@ -295,7 +295,7 @@ export function CoverageMap() {
               <div className="mt-5 space-y-4">
                 <label className="block">
                   <span className="block text-[12px] font-medium uppercase tracking-[0.12em] text-kl-muted">
-                    Изберан град
+                    Избран град
                   </span>
                   <div className="mt-1 flex h-12 items-center rounded-[8px] border border-kl-border bg-kl-subtle px-3 text-[15px] text-kl-ink">
                     Скопје → {selected}

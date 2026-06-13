@@ -50,6 +50,15 @@ const vehicles: Vehicle[] = [
     src: "/images/truck4.webp",
     capacity: "48 м³",
   },
+  {
+    name: "Тип на возило 5",
+    payload: "15500 кг",
+    dims: "8.20м × 245см × 235см",
+    pallets: "20",
+    trailer: "Фургон",
+    src: "/images/vehicle-5.jpg",
+    capacity: "48 м³",
+  },
 ]
 
 export function Vehicles() {

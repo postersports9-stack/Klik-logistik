@@ -39,3 +39,15 @@ export const localBusinessSchema = {
   areaServed: "Северна Македонија",
   openingHours: "Mo-Su 09:00-17:00",
 }
+
+export const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Транспорт на роба",
+  provider: {
+    "@type": "Organization",
+    name: "Klik Logistik"
+  },
+  areaServed: "Северна Македонија",
+  description: "Превоз на палетизирана и непалетизирана стока низ цела држава."
+}
