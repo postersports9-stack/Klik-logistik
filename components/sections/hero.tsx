@@ -7,7 +7,7 @@ export function Hero() {
   const bg = SITE_IMAGES.hero[0].src
 
   return (
-    <section data-theme="dark" className="relative isolate min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-80px)] w-full overflow-hidden bg-kl-ink">
+    <section data-theme="dark" className="relative isolate h-[calc(100svh-64px)] sm:h-[calc(100svh-80px)] w-full overflow-hidden bg-kl-ink">
       <Image
         src={bg}
         alt="Klik Logistik фрахт"
@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 from-0% to-black/30 to-100%" />
       <GrainOverlay opacity={0.06} tone="dark" />
-      <div className="relative z-10 mx-auto flex min-h-[inherit] max-w-[1120px] items-center px-4 py-12 sm:px-6 md:px-8 md:py-16">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1120px] items-center px-4 py-12 sm:px-6 md:px-8 md:py-16">
         <div className="max-w-[640px]">
           <h1 className="text-[32px] leading-[40px] font-medium tracking-[-0.02em] text-white md:text-[56px] md:leading-[64px] lg:text-[64px] lg:leading-[72px]">
             Вашиот пријател

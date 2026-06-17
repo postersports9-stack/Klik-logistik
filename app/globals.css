@@ -145,12 +145,10 @@
     @apply border-border outline-ring/50;
   }
   html {
-    overflow-x: clip;
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
-    overflow-x: clip;
   }
   section[id] {
     scroll-margin-top: 96px;
