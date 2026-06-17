@@ -2,24 +2,34 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { Search } from "lucide-react"
-import { PRICELIST_CITIES, TRUCKS, priceFor, type TruckSize } from "@/lib/constants/pricelist"
+import { PRICELIST_CITIES, TRUCKS, priceFor, truckLabel, type TruckSize } from "@/lib/constants/pricelist"
 import { formatDenar } from "@/lib/format"
 
 type Variant = "hero" | "section"
 
 export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
   const [city, setCity] = useState(PRICELIST_CITIES[0])
-  const [truck, setTruck] = useState<TruckSize>("small")
+  const [truck, setTruck] = useState<TruckSize | null>(null)
+  const [truckError, setTruckError] = useState(false)
   const [phone, setPhone] = useState("")
   const [reserved, setReserved] = useState(false)
 
   const { price, truckSpec } = useMemo(() => {
-    const spec = TRUCKS.find((t) => t.id === truck)!
-    return { price: priceFor(city, truck), truckSpec: spec }
+    const spec = truck ? TRUCKS.find((t) => t.id === truck) : undefined
+    return { price: truck ? priceFor(city, truck) : null, truckSpec: spec }
   }, [city, truck])
+
+  function selectTruck(v: TruckSize) {
+    setTruck(v)
+    setTruckError(false)
+  }
 
   function reserve(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (!truck) {
+      setTruckError(true)
+      return
+    }
     console.info("[CalculatorCard]", { variant, city, truck, phone, price })
     setReserved(true)
   }
@@ -42,7 +52,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             <CitySearch value={city} onChange={setCity} />
           </Field>
           <Field label="Тип на камион">
-            <TruckSelect value={truck} onChange={setTruck} />
+            <TruckSelect value={truck} onChange={selectTruck} error={truckError} />
           </Field>
         </div>
 
@@ -55,7 +65,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
           </span>
         </div>
         <p className="mt-1 text-[12px] text-kl-muted">
-          {truckSpec.volume}
+          {truckSpec ? truckLabel(truckSpec) : "Изберете тип на камион"}
         </p>
 
         {reserved ? (
@@ -74,6 +84,9 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             />
             <button
               type="submit"
+              onClick={() => {
+                if (!truck) setTruckError(true)
+              }}
               className="mt-3 block h-12 w-full rounded-[8px] bg-kl-cta text-[14px] font-medium tracking-wide text-kl-cta-foreground transition-colors duration-100 hover:bg-kl-cta-strong"
             >
               Резервирај
@@ -102,7 +115,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             <Select value={city} onChange={setCity} options={PRICELIST_CITIES} />
           </Field>
           <Field label="Тип на камион">
-            <TruckSelect value={truck} onChange={setTruck} />
+            <TruckSelect value={truck} onChange={selectTruck} error={truckError} />
           </Field>
           <Field label="Датум">
             <input type="date" className={inputCls} />
@@ -126,7 +139,7 @@ export function CalculatorCard({ variant = "section" }: { variant?: Variant }) {
             <div className="flex flex-wrap justify-between gap-x-3">
               <dt className="text-kl-muted">Капацитет</dt>
               <dd className="tabular-nums text-kl-ink">
-                {truckSpec.volume}
+                {truckSpec ? truckLabel(truckSpec) : "—"}
               </dd>
             </div>
           </dl>
@@ -313,31 +326,42 @@ function CitySearch({
 function TruckSelect({
   value,
   onChange,
+  error,
 }: {
-  value: TruckSize
+  value: TruckSize | null
   onChange: (v: TruckSize) => void
+  error?: boolean
 }) {
   return (
-    <div className="grid grid-cols-3 gap-2">
-      {TRUCKS.map((t) => (
-        <button
-          key={t.id}
-          type="button"
-          onClick={() => onChange(t.id)}
-          className={`flex flex-col items-center justify-center rounded-[8px] border px-2 py-3 text-center transition-colors duration-100 ${
-            value === t.id
-              ? "border-kl-ink bg-kl-ink text-white"
-              : "border-kl-border bg-white text-kl-ink hover:border-kl-ink"
-          }`}
-        >
-          <span className="text-[10px] font-medium uppercase tracking-[0.1em] opacity-70">
-            Капацитет
-          </span>
-          <span className="mt-0.5 text-[14px] font-medium tabular-nums">
-            {t.volume}
-          </span>
-        </button>
-      ))}
+    <div>
+      <div className="grid grid-cols-2 gap-2">
+        {TRUCKS.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={() => onChange(t.id)}
+            className={`flex flex-col items-center justify-center rounded-[8px] border px-2 py-3 text-center transition-colors duration-100 ${
+              value === t.id
+                ? "border-kl-ink bg-kl-ink text-white"
+                : error
+                  ? "border-red-500 bg-white text-kl-ink"
+                  : "border-kl-border bg-white text-kl-ink hover:border-kl-ink"
+            }`}
+          >
+            <span className="text-[13px] font-medium leading-tight">
+              {t.label}
+            </span>
+            <span className="mt-0.5 text-[11px] tabular-nums opacity-70">
+              {t.tonnage} т
+            </span>
+          </button>
+        ))}
+      </div>
+      {error && (
+        <p className="mt-2 text-[12px] font-medium text-red-600">
+          Изберете тип на камион.
+        </p>
+      )}
     </div>
   )
 }

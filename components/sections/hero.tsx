@@ -7,7 +7,7 @@ export function Hero() {
   const bg = SITE_IMAGES.hero[0].src
 
   return (
-    <section data-theme="dark" className="relative isolate min-h-[calc(100dvh-64px)] sm:min-h-[calc(100dvh-80px)] w-full overflow-hidden bg-kl-ink">
+    <section data-theme="dark" className="relative isolate min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-80px)] w-full overflow-hidden bg-kl-ink">
       <Image
         src={bg}
         alt="Klik Logistik фрахт"

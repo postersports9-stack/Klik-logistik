@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion"
 import { useMemo, useRef, useState } from "react"
 import { Info } from "lucide-react"
 import { SectionHeading } from "@/components/sections/section-heading"
-import { PRICELIST, TRUCKS, priceFor, type TruckSize } from "@/lib/constants/pricelist"
+import { PRICELIST, TRUCKS, priceFor, truckLabel, type TruckSize } from "@/lib/constants/pricelist"
 import { CITY_COORDS, MAP_VIEWBOX, MK_OUTLINE_PATH } from "@/lib/constants/city-coords"
 import { formatDenar } from "@/lib/format"
 import { SectionWatermark } from "@/components/ui/section-watermark"
@@ -102,10 +102,12 @@ export function CoverageMap() {
   const inView = useInView(ref, { once: true, amount: 0.2 })
   const [hovered, setHovered] = useState<string | null>(null)
   const [selected, setSelected] = useState<string>("Битола")
-  const [truck, setTruck] = useState<TruckSize>("small")
+  const [truck, setTruck] = useState<TruckSize | null>(null)
+  const [truckError, setTruckError] = useState(false)
 
   function pickCity(city: string) {
     setSelected(city)
+    if (!truck) setTruckError(true)
     if (typeof window !== "undefined" && window.innerWidth < 1024) {
       calcRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
     }
@@ -118,8 +120,8 @@ export function CoverageMap() {
   const sx = skopje.x
   const sy = skopje.y
 
-  const price = priceFor(selected, truck)
-  const truckSpec = TRUCKS.find((t) => t.id === truck)!
+  const price = truck ? priceFor(selected, truck) : null
+  const truckSpec = truck ? TRUCKS.find((t) => t.id === truck) : undefined
 
   return (
     <section id="pokritie" data-theme="light" className="relative bg-white">
@@ -152,7 +154,7 @@ export function CoverageMap() {
                   />
 
                   {dots.map((d, i) => {
-                    const isActive = hovered === d.city || selected === d.city
+                    const isActive = hovered ? hovered === d.city : selected === d.city
                     return (
                       <g
                         key={d.city}
@@ -313,25 +315,35 @@ export function CoverageMap() {
                         <button
                           key={t.id}
                           type="button"
-                          onClick={() => setTruck(t.id as TruckSize)}
+                          onClick={() => {
+                            setTruck(t.id as TruckSize)
+                            setTruckError(false)
+                          }}
                           className={`flex w-full items-center justify-between rounded-[8px] border p-3.5 text-left transition-all duration-150 ${
                             isSelected
                               ? "border-kl-ink bg-kl-ink text-white"
-                              : "border-kl-border bg-white text-kl-ink hover:border-kl-ink"
+                              : truckError
+                                ? "border-red-500 bg-white text-kl-ink"
+                                : "border-kl-border bg-white text-kl-ink hover:border-kl-ink"
                           }`}
                         >
                           <div className="flex flex-col">
-                            <span className={`text-[11px] font-medium uppercase tracking-[0.1em] ${isSelected ? "text-white/70" : "text-kl-muted"}`}>
-                              Капацитет
+                            <span className="text-[15px] font-medium leading-tight">
+                              {t.label}
                             </span>
-                            <span className="mt-0.5 text-[15px] font-medium tabular-nums leading-tight">
-                              {t.volume}
+                            <span className={`mt-0.5 text-[11px] font-medium tabular-nums ${isSelected ? "text-white/70" : "text-kl-muted"}`}>
+                              {t.tonnage} т
                             </span>
                           </div>
                         </button>
                       )
                     })}
                   </div>
+                  {truckError && (
+                    <p className="mt-2 text-[12px] font-medium text-red-600">
+                      Изберете тип на камион.
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -344,13 +356,19 @@ export function CoverageMap() {
                   <span className="ml-2 text-[16px] font-normal text-white/70">ден.</span>
                 </div>
                 <div className="mt-2 text-[12px] text-white/60">
-                  Капацитет: {truckSpec.volume}
+                  Капацитет: {truckSpec ? truckLabel(truckSpec) : "—"}
                 </div>
               </div>
 
               <a
                 href="#kontakt"
                 onClick={(e) => {
+                  if (!truck) {
+                    e.preventDefault()
+                    setTruckError(true)
+                    calcRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+                    return
+                  }
                   if (typeof window !== "undefined") {
                     window.dispatchEvent(
                       new CustomEvent("fill-route", {
