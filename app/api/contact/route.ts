@@ -102,11 +102,13 @@ Email: ${email || "-"}
       ok: true,
       message: "Пораката е успешно испратена.",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Contact email error:", error);
 
+    const errorMessage = error instanceof Error ? error.message : String(error);
+
     return NextResponse.json(
-      { ok: false, message: "Настана грешка при испраќање." },
+      { ok: false, message: `Настана грешка при испраќање: ${errorMessage}` },
       { status: 500 }
     );
   }
