@@ -1,6 +1,16 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+
+function getIp(request: Request): string {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  if (forwardedFor) {
+    return forwardedFor.split(",")[0].trim();
+  }
+  return "unknown-ip";
+}
+
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -12,6 +22,27 @@ function escapeHtml(value: string) {
 
 export async function POST(request: Request) {
   try {
+    const ip = getIp(request);
+    const now = Date.now();
+    const ONE_DAY = 24 * 60 * 60 * 1000;
+
+    const record = rateLimitMap.get(ip) || { count: 0, lastReset: now };
+
+    if (now - record.lastReset > ONE_DAY) {
+      record.count = 0;
+      record.lastReset = now;
+    }
+
+    if (record.count >= 3) {
+      return NextResponse.json(
+        { ok: false, message: "Надминат е лимитот за испраќање пораки (макс. 3 дневно)." },
+        { status: 429 }
+      );
+    }
+
+    record.count += 1;
+    rateLimitMap.set(ip, record);
+
     const body = await request.json();
 
     const name = String(body.name || "").trim();

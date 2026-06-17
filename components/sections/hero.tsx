@@ -13,7 +13,8 @@ export function Hero() {
         alt="Klik Logistik фрахт"
         fill
         priority
-        quality={90}
+        quality={100}
+        unoptimized
         sizes="100vw"
         className="object-cover"
       />
