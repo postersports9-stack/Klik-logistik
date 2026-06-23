@@ -58,6 +58,11 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/15 pt-6 text-[12px] text-white/60 md:flex-row md:items-center">
           <div>© Klik Logistik {new Date().getFullYear()} · Сите права задржани</div>
+          <p className="max-w-[520px] md:text-right">
+            Klik Logistik (Клик Логистик) — официјален сајт{" "}
+            <a href="https://klikgroup.mk" className="text-white/80 hover:text-white">klikgroup.mk</a>.
+            Транспорт и логистика, Скопје и низ цела Македонија.
+          </p>
         </div>
       </div>
     </footer>

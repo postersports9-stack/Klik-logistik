@@ -7,7 +7,6 @@ import { Vehicles } from "@/components/sections/vehicles"
 import { ContactForm } from "@/components/sections/contact-form"
 import { Footer } from "@/components/sections/footer"
 import { ContactWidget } from "@/components/ui/contact-widget"
-import { JsonLd, localBusinessSchema } from "@/components/seo/json-ld"
 
 export const metadata = {
   alternates: { canonical: "/" }
@@ -16,7 +15,6 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main>
-      <JsonLd data={localBusinessSchema} />
       <Header />
       <Hero />
       <CoverageMap />
