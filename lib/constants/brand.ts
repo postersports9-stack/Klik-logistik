@@ -9,4 +9,5 @@ export const BRAND = {
   niche: "Превоз на роба",
   email: "info@klikgroup.mk",
   url: "https://klikgroup.mk",
+  linkedin: "https://www.linkedin.com/company/klik-logistik/",
 } as const;

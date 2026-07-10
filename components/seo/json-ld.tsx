@@ -59,7 +59,7 @@ export const siteSchema = {
         areaServed: "MK",
         availableLanguage: ["Macedonian", "English"],
       },
-      sameAs: [],
+      sameAs: ["https://www.linkedin.com/company/klik-logistik/"],
     },
     {
       "@type": "WebSite",

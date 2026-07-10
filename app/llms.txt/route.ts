@@ -18,6 +18,7 @@ Klik Logistik (legal name: Klik Logistik DOOEL Skopje; also known as Klik Group 
 - Email: info@klikgroup.mk
 - Area served: Skopje and the whole of North Macedonia
 - Languages: Macedonian, English
+- LinkedIn: https://www.linkedin.com/company/klik-logistik/
 
 ## Services
 - Freight transport of palletized and non-palletized goods (Транспорт на роба)
