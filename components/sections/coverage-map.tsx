@@ -116,6 +116,7 @@ export function CoverageMap() {
   const dots = useMemo(buildDots, [])
   const activeCity = hovered ?? selected
   const activeDot = dots.find((d) => d.city === activeCity)
+  const skopjeActive = activeCity === "Скопје локал"
   const skopje = CITY_COORDS["Скопје"]
   const sx = skopje.x
   const sy = skopje.y
@@ -209,39 +210,47 @@ export function CoverageMap() {
                     )
                   })}
 
-                  <motion.circle
-                    cx={sx}
-                    cy={sy}
-                    r={36}
-                    fill="rgba(250,204,21,0.18)"
-                    initial={{ scale: 0.6, opacity: 0 }}
-                    animate={inView ? { scale: [0.6, 1.2, 1], opacity: [0, 0.9, 0.6] } : {}}
-                    transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
-                  />
-                  <motion.circle
-                    cx={sx}
-                    cy={sy}
-                    r={12}
-                    fill="#FACC15"
-                    stroke="#111111"
-                    strokeWidth={2}
-                    initial={{ scale: 0 }}
-                    animate={inView ? { scale: 1 } : {}}
-                    transition={{ type: "spring", stiffness: 200, damping: 14, delay: 0.2 }}
-                  />
-                  <motion.text
-                    x={sx + 22}
-                    y={sy - 16}
-                    fill="#111111"
-                    fontSize={20}
-                    fontWeight={700}
-                    style={{ paintOrder: "stroke", stroke: "rgba(246,246,246,0.95)", strokeWidth: 6 }}
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.6 }}
+                  <g
+                    onMouseEnter={() => setHovered("Скопје локал")}
+                    onMouseLeave={() => setHovered(null)}
+                    onClick={() => pickCity("Скопје локал")}
+                    style={{ cursor: "pointer" }}
                   >
-                    Скопје
-                  </motion.text>
+                    <circle cx={sx} cy={sy} r={40} fill="transparent" />
+                    <motion.circle
+                      cx={sx}
+                      cy={sy}
+                      r={36}
+                      fill="rgba(250,204,21,0.18)"
+                      initial={{ scale: 0.6, opacity: 0 }}
+                      animate={inView ? { scale: [0.6, 1.2, 1], opacity: [0, 0.9, 0.6] } : {}}
+                      transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
+                    />
+                    <motion.circle
+                      cx={sx}
+                      cy={sy}
+                      r={skopjeActive ? 15 : 12}
+                      fill="#FACC15"
+                      stroke="#111111"
+                      strokeWidth={skopjeActive ? 3 : 2}
+                      initial={{ scale: 0 }}
+                      animate={inView ? { scale: 1 } : {}}
+                      transition={{ type: "spring", stiffness: 200, damping: 14, delay: 0.2 }}
+                    />
+                    <motion.text
+                      x={sx + 22}
+                      y={sy - 16}
+                      fill="#111111"
+                      fontSize={20}
+                      fontWeight={700}
+                      style={{ paintOrder: "stroke", stroke: "rgba(246,246,246,0.95)", strokeWidth: 6 }}
+                      initial={{ opacity: 0 }}
+                      animate={inView ? { opacity: 1 } : {}}
+                      transition={{ delay: 0.6 }}
+                    >
+                      Скопје
+                    </motion.text>
+                  </g>
 
                   {activeDot && (
                     <g pointerEvents="none">
